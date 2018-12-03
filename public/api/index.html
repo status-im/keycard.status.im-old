@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head prefix="og: http://ogp.me/ns#"><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <title>Keycard API | Keycard</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://dev-keycard.status.im/api/index.html">
+  <!-- Alternative links -->
+  
+    
+      <link rel="alternative" hreflang="en" href="https://dev-keycard.status.im/api/index.html">
+    
+  
+  <!-- Icon -->
+  <meta name="msapplication-TileColor" content="#ff9c00">
+  <meta name="msapplication-TileImage" content="/icon/mstile-144x144.png">
+
+  <link rel="icon" type="image/png" href="/img/logo-16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="/img/logo-32.png" sizes="32x32">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon-76.png?v=0.0.5">
+  <link rel="apple-touch-icon" sizes="120x120" href="/img/apple-touch-icon-120.png?v=0.0.5">
+  <link rel="apple-touch-icon" sizes="152x152" href="/img/apple-touch-icon-152.png?v=0.0.5">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon-180.png?v=0.0.5">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon-1024.png?v=0.0.5">
+  <link rel="stylesheet" href="/css/main.min.css">
+  <link rel="alternate" href="/atom.xml" title="Keycard">
+  <meta property="og:title" content="Status Incubate: helping #buidl web3">
+</head>
+
+<body>
+  <div id="container">
+    
+      <div class="header">
+    <div class="header-left">
+        <a class="logo" href="/"></a>
+        
+<ul class="main-nav">
+    <li class="item--to-show"><a href="https://status.im/get" class="">App</a></li>
+    <li class="item--to-show"> <a href="https://our.status.im/">Blog</a> </li>
+    <li class="item--to-show"> <a href="https://status.im/docs">Docs</a></li>
+    <li class="item--dropdown item--dropdown-projects"> <a href="#" class="">Projects</a></li>
+    <li><a href="https://status.im/contribute">Contribute</a></li>
+    <li class="item--dropdown"><a href="#" class="item--dropdown-community">Community</a></li>
+    <li class="item--more"><a href="#" class="item--more">More</a></li>
+</ul>
+
+    </div>
+    <div class="header-right">
+        <a href="http://get.status.im/chat/public/status-incubate" class="button button--secondary" style="margin-right: 8px">Join Status Chat</a>
+    </div>
+</div>
+
+<div class="mobile-nav-wrap">
+    <div class="mobile-nav-inner">
+        <a class="logo" href="/"></a>
+        <a class="icon-close mobile-nav-close" href="#"></a>
+        <ul class="mobile-nav">
+            <li><a href="https://our.status.im/tag/incubate/">Blog</a></li>
+            <li><a href="https://status.im/docs">Docs</a></li>
+            <li class="item--dropdown item--to-show">
+              <span>Projects</span>
+              <ul class="mobile-sub-nav">
+                <li><a href="https://incubate.status.im/" class="">Incubate</a></li>
+                <li><a href="https://nimbus.status.im/" class="">Nimbus</a></li>
+                <li><a href="https://embark.status.im/" class="">Embark</a></li>
+                <li><a href="https://hardwallet.status.im/" class="">Keycard</a></li>
+              </ul>
+            </li>
+            <li><a href="https://status.im/contribute/" class="">Contribute</a></li>
+        </ul>
+        <div class="mobile-nav-footer">
+            <a href="http://get.status.im/chat/public/status-incubate" class="button button--secondary">Join Status Chat</a>
+        </div>
+        <header class="dropdown">
+            <nav>
+                
+<ul class="main-nav">
+    <li class="item--to-show"><a href="https://status.im/get" class="">App</a></li>
+    <li class="item--to-show"> <a href="https://our.status.im/">Blog</a> </li>
+    <li class="item--to-show"> <a href="https://status.im/docs">Docs</a></li>
+    <li class="item--dropdown item--dropdown-projects"> <a href="#" class="">Projects</a></li>
+    <li><a href="https://status.im/contribute">Contribute</a></li>
+    <li class="item--dropdown"><a href="#" class="item--dropdown-community">Community</a></li>
+    <li class="item--more"><a href="#" class="item--more">More</a></li>
+</ul>
+
+            </nav>
+        </header>
+    </div>
+    <div class="popup-overlay"></div>
+</div>
+
+<div class="popup-wrap popup-wrap--community">
+    <div class="popup popup--community">
+        <a class="popup__button popup__button--close"></a>
+        <h3 class="popup__title">Community</h3>
+        <div class="popup__inner">
+            <div class="cards cards--three cards--three--even cards--community cards--community--light">
+                <div class="card">
+                    <a href="https://get.status.im/chat/public/status" class="card-inner">
+                        <div class="community-icon community-icon--join"></div>
+                        <h4>Join the chat in Status</h4>
+                        <p class="secondary-text">Whisper sweet, encrypted nothings on a distributed network that no-one owns.</p>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="https://discuss.status.im/" class="card-inner">
+                        <div class="community-icon community-icon--discussion"></div>
+                        <h4>Join the Discussion</h4>
+                        <p class="secondary-text">Join longer discussions, work in progress, and our research here.</p>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="https://github.com/status-im/" class="card-inner">
+                        <div class="community-icon community-icon--contrubute"></div>
+                        <h4>Contribute to our Repos</h4>
+                        <p class="secondary-text">Help us #buidl the future by getting involved in the most active code base in Ethereum.</p>
+                    </a>
+                </div>
+            </div>
+            <h5>Find Out More</h5>
+            <div class="cards cards-community-more cards--three cards--three--even">
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-content">
+                            <div class="latest-posts latest-news"></div>
+                        </div>
+                        <div class="card-community-more__link"><a href="https://our.status.im/" class="link-arrow">Learn more</a></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-content">
+                            <h4>Life at Status</h4>
+                            <p class="secondary-text">What's it like to live the decentralized lifestyle? Find out here.</p>
+                        </div>
+                        <div class="card-community-more__link"><a href="https://status.im/contribute/" class="link-arrow">Learn more</a></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-content">
+                            <h4>Follow us on Twitter</h4>
+                            <p class="secondary-text">Join the conversation on our social channels to learn more.</p>
+                        </div>
+                        <div class="card-community-more__link"><a href="https://twitter.com/ethstatus/" class="link-arrow">Learn more</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popup-overlay"></div>
+</div>
+
+<div class="popup-wrap popup-wrap--projects">
+    <div class="popup popup--projects">
+        <a class="popup__button popup__button--close"></a>
+        <h3 class="popup__title">Projects</h3>
+        <div class="popup__inner">
+            <h5>Help us #buidl</h5>
+            <div class="cards cards-community-more cards--three cards--three--even">
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-content">
+                            <h4>Embark</h4>
+                            <p class="secondary-text">Embark is a simple and easy to use development framework that enables you to build and deploy your own decentralized applications smoothly.</p>
+                        </div>
+                        <div class="card-community-more__link"><a href="https://embark.status.im/" class="link-arrow">Learn more</a></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-content">
+                            <h4>Nimbus</h4>
+                            <p class="secondary-text">A research project and light client for Ethereum 2.0 designed to perform well on embedded systems and resource-restricted hardware.</p>
+                        </div>
+                        <div class="card-community-more__link"><a href="https://nimbus.status.im" class="link-arrow">Learn more</a></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-content">
+                            <h4>Keycard</h4>
+                            <p class="secondary-text">A hardware wallet in the form of a card with a safe, contactless transaction experience</p>
+                        </div>
+                        <div class="card-community-more__link"><a href="https://hardwallet.status.im/" class="link-arrow">Learn more</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="separator"></div>
+            <h5>Enable Everyone</h5>
+            <div class="cards cards-community-more cards--three cards--three--even">
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-content">
+                            <h4>Incubate</h4>
+                            <p class="secondary-text">Incubate supports open source, early stage startups with funding, technical mentorship, legal and regulatory compliance and much more.</p>
+                        </div>
+                        <div class="card-community-more__link"><a href="https://incubate.status.im/" class="link-arrow">Learn more</a></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-content">
+                            <h4>Statusphere</h4>
+                            <p class="secondary-text">Get involved in our community today, no matter who you are.</p>
+                        </div>
+                        <div class="card-community-more__link"><a href="https://status.im/statusphere/" class="link-arrow">Learn more</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popup-overlay"></div>
+</div>
+
+    
+    <div class="page-intro wrapper">
+  <header class="article-header">
+    <h1 class="article-title" itemprop="name">Keycard API</h1>
+    <a href="https://github.com/status-im/incubate.status.im/edit/develop/source/api/index.md" class="article-edit-link" title="Improve this doc">Edit on Github</a>
+  </header>
+</div>
+<div id="content-wrap">
+  <div id="content" class="wrapper">
+    <div id="content-inner">
+      <article class="article-container" itemscope="" itemtype="http://schema.org/Article">
+        <div class="article-inner">
+          <div class="article">
+            <div class="inner">
+              <div class="article-content" itemprop="articleBody">
+                <h1 id="Read-All-The-Specifics-Here" class="article-heading"><a href="#Read-All-The-Specifics-Here" class="headerlink" title="Read All The Specifics Here"></a>Read All The Specifics Here<a class="article-anchor" href="#Read-All-The-Specifics-Here" aria-hidden="true"></a></h1>
+              </div>
+              <footer class="article-footer">
+                <time class="article-footer-updated" datetime="2018-12-03T10:21:49.902Z" itemprop="dateModified">Last updated: 2018-12-03</time>
+                <a href="../tutorials/" class="article-footer-next" title="Learn More"><span>Next</span><i class="fa fa-chevron-right"></i></a>
+              </footer>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>
+
+    
+<div class="footer footer--global">
+    <div class="footer-inner">
+        <div class="footer-table">
+            <div class="footer-table__column">
+                <p class="footer-header">Social links</p>
+                <ul class="footer-list">
+                    <li class="footer-link footer-link--fb"><a href="https://www.facebook.com/ethstatus" target="_blank"><span class="footer-icon"></span><span class="footer-link-label">Facebook</span></a></li>
+                    <li class="footer-link footer-link--tw"><a href="https://twitter.com/ethstatus" target="_blank"><span class="footer-icon"></span><span class="footer-link-label">Twitter</span></a></li>
+                    <li class="footer-link footer-link--ri"><a href="https://chat.status.im/#/register" target="_blank"><span class="footer-icon"></span><span class="footer-link-label">Riot</span></a></li>
+                    <li class="footer-link footer-link--gh"><a href="https://github.com/status-im" target="_blank"><span class="footer-icon"></span><span class="footer-link-label">Github</span></a></li>
+                    <li class="footer-link footer-link--rd"><a href="https://www.reddit.com/r/statusim/" target="_blank"><span class="footer-icon"></span><span class="footer-link-label">Reddit</span></a></li>
+                    <li class="footer-link footer-link--yt"><a href="https://www.youtube.com/statusim" target="_blank"><span class="footer-icon"></span><span class="footer-link-label">YouTube</span></a></li>
+                </ul>
+            </div>
+
+            <div class="footer-table__column">
+                <p class="footer-header">More</p>
+                <ul class="footer-list">
+                    <li class="footer-link"><a href="https://status.im/docs/" target="_blank">Status Docs</a></li>
+                    <li class="footer-link"><a href="https://our.status.im/" target="_blank">Status Blog</a></li>
+                    <li class="footer-link"><a href="https://status.im/contribute/" target="_blank">Jobs</a></li>
+                    <li class="footer-link"><a href="https://status.im/privacy-policy.html" target="_blank">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-table__column">
+                <p class="footer-header">Projects</p>
+                <ul class="footer-list">
+                    <li class="footer-link"><a href="https://embark.status.im" target="_blank">Embark</a></li>
+                    <li class="footer-link"><a href="https://hardwallet.status.im/" target="_blank">Keycard</a></li>
+                    <li class="footer-link"><a href="https://incubate.status.im/" target="_blank">Incubate</a></li>
+                    <li class="footer-link"><a href="https://nimbus.status.im/" target="_blank">Nimbus</a></li>
+                </ul>
+            </div>
+        </div>
+    
+        <div class="footer-logo-wrap">
+            <div class="footer-logo-wrap__inner">
+                <a class="footer-logo" href="https://status.im" target="_blank"></a>
+                <div class="footer-address secondary-text">Status Research & Development GmbH<br>Baarerstrasse 10<br>Zug, Switzerland</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+  </div>
+  <div id="mobile-nav-dimmer"></div>
+  <div class="backdrop"></div>
+<div class="mobile-menu-container">
+  <div class="mobile-menu-container-inner">
+    <div class="mobile-menu-header">
+      <div class="logo-wrap">
+          <span class="logo-span"><a class="logo" href="/"></a></span>
+          <span class="logo-span"><a class="logo-text" href="/">status</a></span>
+      </div>
+      <a href="#" class="close">
+        <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 10.574L7.72275 6.2968C7.32616 5.90021 6.68994 5.90241 6.29617 6.29617C5.89966 6.69269 5.90269 7.32864 6.2968 7.72275L10.574 12L6.2968 16.2772C5.90021 16.6738 5.90241 17.3101 6.29617 17.7038C6.69269 18.1003 7.32864 18.0973 7.72275 17.7032L12 13.426L16.2772 17.7032C16.6738 18.0998 17.3101 18.0976 17.7038 17.7038C18.1003 17.3073 18.0973 16.6714 17.7032 16.2772L13.426 12L17.7032 7.72275C18.0998 7.32616 18.0976 6.68994 17.7038 6.29617C17.3073 5.89966 16.6714 5.90269 16.2772 6.2968L12 10.574Z" fill="black"/>
+        </svg>
+      </a>
+    </div>
+    <div class="ecosystem">
+      <span class="title">Ecosystem</span>
+    </div>
+    <div class="community">
+      <span class="title">Community</span>
+    </div>
+  </div>
+  <div class="mobile-submenu-container-inner">
+    <div class="mobile-menu-header">
+      <a href="#" class="back">
+        <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.00687 12.1016C7.02704 12.3261 7.1228 12.5448 7.29281 12.7143L14.3042 19.7079C14.6926 20.0953 15.3188 20.0988 15.7089 19.7097C16.0963 19.3232 16.0907 18.6911 15.7072 18.3085L9.38119 11.9986L15.7072 5.68865C16.0956 5.30126 16.099 4.67664 15.7089 4.28751C15.3215 3.90107 14.6877 3.9067 14.3042 4.28924L7.29281 11.2828C7.06819 11.5069 6.97231 11.8103 7.00687 12.1016Z" fill="black"/>
+        </svg>
+      </a>
+      <span class="title">Status app</span>
+      <a href="#" class="close">
+        <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 10.574L7.72275 6.2968C7.32616 5.90021 6.68994 5.90241 6.29617 6.29617C5.89966 6.69269 5.90269 7.32864 6.2968 7.72275L10.574 12L6.2968 16.2772C5.90021 16.6738 5.90241 17.3101 6.29617 17.7038C6.69269 18.1003 7.32864 18.0973 7.72275 17.7032L12 13.426L16.2772 17.7032C16.6738 18.0998 17.3101 18.0976 17.7038 17.7038C18.1003 17.3073 18.0973 16.6714 17.7032 16.2772L13.426 12L17.7032 7.72275C18.0998 7.32616 18.0976 6.68994 17.7038 6.29617C17.3073 5.89966 16.6714 5.90269 16.2772 6.2968L12 10.574Z" fill="black"/>
+        </svg>
+      </a>
+    </div>
+    <div class="dropdown">
+      <nav></nav>
+    </div>
+  </div>
+</div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+<script src="/js/vendor.min.js"></script>
+
+</body>
+</html>

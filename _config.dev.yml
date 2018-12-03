@@ -1,0 +1,33 @@
+title: Keycard
+subtitle: "Keep Your Key Safe"
+description: "An Open Source CryptoCard For Everything, Evereywhere"
+author: Status
+language: en
+timezone: UTC
+
+url: https://dev-keycard.status.im/
+root: /
+permalink: news/:year/:month/:day/:title/
+archive_dir: news
+code_dir: downloads/code
+new_post_name: :year-:month-:day-:title.md # File name of new posts
+post_asset_folder: true
+per_page: 0
+
+theme: navy
+deploy:
+  type: git
+  branch: gh-pages
+  name: status-im-auto
+  repo: git@github.com:andytudhope/keycard.status.im.git
+
+theme_config:
+    favicon: img/logo-32.png
+
+highlight:
+  enable: true
+  line_number: false
+
+disqus_shortname: hexojs
+twitter: cryptowanderer
+github: andytudhope

@@ -1,0 +1,14 @@
+api:
+  API:
+    overview: index.html
+  Tutorials:
+    learn_more: ../tutorials/
+
+tutorials:
+  start:
+    start_here: index.html
+  by_lanaguge:
+    go: go_tutorial.html
+  Api:
+    back_to_api: ../api/
+    

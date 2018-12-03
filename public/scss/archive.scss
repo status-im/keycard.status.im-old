@@ -1,0 +1,39 @@
+.archive-post {
+  padding: 1em 0;
+  border-top: 1px solid $colorBorder;
+  &:last-child {
+    padding-bottom: 40px;
+  }
+}
+
+.archive-post-link {
+  //clearfix();
+  &:before
+  &:after  {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+  // end clearfix()
+  display: block;
+  color: $colorDefault;
+  text-decoration: none;
+  line-height: line-height;
+  &:hover {
+    color: $colorLinkHover;
+  }
+}
+
+.archive-post-title {
+  font-family: $FontTitle;
+  float: left;
+  font-weight: bold;
+}
+
+.archive-post-date {
+  color: $colorGray;
+  float: right;
+  font-size: 0.9em;
+}

@@ -1,0 +1,28 @@
+menu:
+  docs: Docs
+  api: API
+  tutorials: Tutorials
+  search: Search
+  blog: Blog
+
+page:
+  contents: Contents
+  back_to_top: Back to Top
+  improve: Improve this doc
+  prev: Prev
+  next: Next
+  last_updated: "Last updated: %s"
+
+sidebar:
+  api:
+    API: Keycard API
+    overview: Overview
+    Tutorials: Tutorials
+    learn_more: Learn More
+  tutorials:
+    start: Getting Started
+    start_here: Setup & Installation
+    by_lanaguge: By Language
+    go: Golang
+    Api: Kaycard API
+    back_to_api: Back to API docs
