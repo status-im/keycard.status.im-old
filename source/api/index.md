@@ -3,14 +3,23 @@ id: index
 title: Keycard API
 ---
 
-# Read All The Specifics Here
+# Getting started
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lobortis neque eu libero molestie iaculis. Aenean a risus vel magna faucibus molestie. Vestibulum quam eros, pretium ut mattis in, hendrerit non metus. Duis auctor neque vitae tincidunt facilisis. Nullam vel dolor justo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla malesuada elit non pharetra sodales. Aenean mollis metus est, vel rutrum neque laoreet eget. Pellentesque fringilla est nec magna accumsan facilisis. Sed non lectus orci. Praesent varius sem in pretium condimentum. Etiam pellentesque mauris at congue finibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Keycard provides to developer an hardware implementation of a [BIP-32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki) HD wallet. This means it supports key generation,
+derivation and signing. It also allows exporting keys defined in the context of [EIP-1581](https://eips.ethereum.org/EIPS/eip-1581).
 
-Aliquam urna urna, efficitur eget lacus vitae, porta hendrerit sem. Nullam rhoncus pulvinar orci, ullamcorper molestie metus consectetur non. Vivamus tempus sem id nunc imperdiet, in varius justo ullamcorper. Proin tincidunt augue odio, vel consequat quam vehicula eu. Fusce pharetra pretium sagittis. Pellentesque vel massa vel odio pellentesque luctus. Sed tempus libero sed sapien commodo aliquet. Sed tempus massa tempus, ultricies tortor ac, efficitur odio.
+Communication with the Keycard happens through a simple APDU interface is provided, together with a Secure Channel 
+guaranteeing confidentiality, authentication and integrity of all commands. It supports both NFC and ISO7816 physical
+interfaces, meaning that it is compatible with any Android phone equipped with NFC and all USB Smartcard readers.
 
-Maecenas malesuada magna eget ipsum placerat tincidunt. Donec ac nulla interdum, accumsan mi at, varius est. Sed viverra mi vitae mauris consequat, ut cursus metus ultrices. Phasellus ornare pharetra eros, auctor blandit nisi lacinia sit amet. Vivamus rhoncus augue id cursus lacinia. Nulla placerat neque risus, maximus interdum sapien placerat non. Sed a est eu dui viverra finibus. Curabitur cursus vitae nisi a accumsan. Integer leo massa, dictum at leo vel, euismod sollicitudin tellus. Vivamus eleifend lobortis porta. Suspendisse tincidunt augue in diam eleifend commodo.
+The most obvious case for integration of Keycard is crypto wallets (ETH, BTC, etc), however it can be used in other
+systems where a BIP-32 key tree is used and/or you perform authentication/identification.
 
-Nulla sapien velit, posuere ut tempus eget, tincidunt sed elit. Nam maximus arcu ut luctus gravida. Sed varius justo et purus faucibus interdum sed vitae lectus. Aliquam in aliquam justo. Aliquam id felis tincidunt, maximus erat sit amet, tincidunt ante. Praesent non aliquet purus. Morbi porta ullamcorper sem eget dapibus. Maecenas faucibus quam eu mi bibendum consequat. Vestibulum venenatis molestie erat, vel eleifend nibh mattis id. Aenean vitae tincidunt nulla. Suspendisse vel commodo sem, vel blandit risus. Donec dignissim blandit est eu tincidunt.
+To further simplify integration, we have developed a Java-based API which can be used on both desktop and Android systems.
+On the desktop it uses the javax.smartcardio to interface with the card, which is compatible with most USB readers. On
+Android it uses the on-board NFC reader. If you develop in Java or any other language available, this is the easiest way
+to use the Keycard. [Read the documentation by clicking here](java-sdk.md)
 
-Aliquam mauris tortor, ultrices non posuere a, semper et elit. Suspendisse eget magna nisl. Mauris ac nisi et mi ullamcorper facilisis id quis lorem. Fusce non lacus tempor, tempus magna a, tempus purus. Donec malesuada interdum lorem in vestibulum. Sed convallis, mauris vitae condimentum volutpat, eros ipsum rutrum risus, vitae placerat diam dolor condimentum metus. Aliquam augue mauris, ullamcorper at quam sed, blandit elementum risus. Suspendisse nec enim sed lacus dictum finibus vitae non tellus. Pellentesque rutrum, purus at bibendum venenatis, justo ligula porta ante, nec imperdiet erat felis quis mauris. Aliquam vel dolor nisl. Proin quis nibh sodales tortor elementum pellentesque. Cras maximus gravida erat, vitae pharetra justo facilisis vel. Proin mauris mauris, vestibulum at dapibus vitae, condimentum dapibus lacus. Aliquam erat volutpat. Proin tortor est, finibus sit amet nunc eget, fermentum molestie lacus. Duis arcu augue, condimentum non libero id, bibendum pharetra mauris.
+If you use a different language, please first refer to the [Java SDK](java-sdk) documentation for a high level overview
+of how to perform different tasks with the Keycard. Then, please check the [APDU protocol documentation](apdu.md) out
+for the low-level details.
