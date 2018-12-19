@@ -173,9 +173,33 @@ info.getFreePairingSlots());
 // Tells if the card has a wallet or not. If no wallet is available, you must create once before you can perform most
 // operations on the card
 info.hasMasterKey();
+
+// Returns the UID of the master key of the wallet. The UID is value generated starting from the public key and is 
+// useful to identify if the card has the expected wallet.
+info.getKeyUID();
 ```
 
-After the applet is selected, you can start working with it. At this point, we need to know a few concepts.
+After the applet is selected, you can start working with it. Note that the application remains selected until another
+applet is explicitly selected, or the card is powered off (for example is removed from the field)
+
+### Initialization
+
+This step is necessary to bring the initial credentials on the Keycard instance. When the card is not initialized, it 
+cannot perform any operation. Initialization sets the initial PIN, PUK and pairing password and requires no 
+authentication, but still uses a SecureChannel resistant to passive MITM attacks. Once the card is initialized, it
+cannot be initialized again (but credentials can be different with a different mechanism with previous authentication).
+
+Initialization is done with
+
+```java
+// Usually, you want to check if the card is initialized before trying to initialize it, otherwise you will receive an
+// error.
+if (!info.isInitializedCard()) {
+  // The PIN must be 6 digits, the PUK 12 digits and the pairing password can be any password. 
+  // All parameters are strings
+  cmdSet.init(pin, puk, pairingPassword).checkOK();
+}
+```
 
 ### Pairing
 
@@ -211,4 +235,73 @@ cmdSet.setPairing(pairing);
 ```
 
 ### Secure Channel
+
+After a pairing has been established, a secure channel can be opened. Before opening a secure channel, the card won't
+allow sending any command. This guarantees secrecy, integrity and authenticity of the commands. Opening a secure channel
+must be performed every time the applet is selected (this means also after a power loss). After opening it, the SDK
+handles the secure channel transparently, encrypting and signing all command APDUs and decrypting and verifying the
+signature of all responses. To open a secure channel all you need to do is
+
+```java
+cmdSet.autoOpenSecureChannel();
+```
+
+### Authenticating the user
+
+Most operations with the card (all involving operations with the wallet or credentials) require authenticating the user.
+After authentication, the user remains authenticated until the card is powered off or the application is re-selected.
+
+Authentication is performed by verifying the user PIN. Note that this piece of information is sensitive and must be
+handled accordingly in the application. PIN verification is done with a single step
+
+```java
+// pin is the user PIN as a string of 6 digits
+cmdSet.verifyPIN(pin).checkOK();
+```
+
+## Creating a wallet
+
+To actually use the Keycard, it needs to have a wallet. This can be achieved in several different ways, which one you
+choose depends on your usage scenario. Creating a wallet requires user authentication and is possible even if a wallet
+already exists on the card (the new wallet replaces the old one). Use the ```ApplicationInfo.hasMasterKey()``` method
+to determine if the card already has a wallet or not.
+
+### Creating a BIP39 mnemonic phrase
+
+This method is great for interoperability with other wallets. The card can assist in creating the mnemonic phrase, since 
+it features a TRNG. Generating the mnemonic itself does not require user authentication (since it does not modify the
+card state), but loading the key derived from it does. Example of the entire procedure is below
+
+```java
+// Generates a Mnemonic object from the card. You can choose between generating 12, 15, 18, 21 or 24 words
+Mnemonic mnemonic = new Mnemonic(cmdSet.generateMnemonic(KeycardCommandSet.GENERATE_MNEMONIC_12_WORDS).checkOK().getData());
+
+// We need to set a wordlist if we plan using this object to derive the binary seed. We can set our own list or we can
+// fatch the official BIP39 english word list as shown below.
+mnemonic.fetchBIP39EnglishWordlist();
+
+// If we did not verify the PIN before, we can do it now
+cmdSet.verifyPIN(pin).checkOK();
+
+// Loads the key generated from the mnemonic phrase.
+cmdSet.loadKey(mnemonic.toBIP32KeyPair()).checkOK();
+```
+
+### Importing a wallet from BIP39 mnemonic phrase
+
+
+
+
+### Generating keys on-card
+
+This is the simplest and safest method, because the generated wallet never leaves the card and there is no "paper backup" 
+to keep secure. It is possible to create secure backups of the wallet on other Keycards, with a mechanism described in
+later chapters. Using the SDK, you simply do
+
+```java
+cmdSet.generateKey().checkOK();
+```
+
+### Importing an EC keypair
+
 
