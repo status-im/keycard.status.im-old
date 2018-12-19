@@ -264,7 +264,11 @@ cmdSet.verifyPIN(pin).checkOK();
 To actually use the Keycard, it needs to have a wallet. This can be achieved in several different ways, which one you
 choose depends on your usage scenario. Creating a wallet requires user authentication and is possible even if a wallet
 already exists on the card (the new wallet replaces the old one). Use the ```ApplicationInfo.hasMasterKey()``` method
-to determine if the card already has a wallet or not.
+to determine if the card already has a wallet or not. Note that the response of the ```KeycardCommandSet.loadKey``` method
+contains the key UID of the created wallet. This UID can be stored to keep track of this specific wallet in the client.
+The UID is tied to the key itself (is derived from the public key) so it will change if the wallet on card is replaced.
+The key UID is also part of the response of the applet selection command, so the wallet can be identified immediately
+upon selection.
 
 ### Creating a BIP39 mnemonic phrase
 
@@ -289,8 +293,12 @@ cmdSet.loadKey(mnemonic.toBIP32KeyPair()).checkOK();
 
 ### Importing a wallet from BIP39 mnemonic phrase
 
+Importing an existing passphrase requires only the loading step.
 
-
+```java
+// The passphrase is a string with space separated words. The password can be any non-null string, usually is empty.
+cmdSet.loadKey(Mnemonic.toBinarySeed(passphrase, password)).checkOK();
+```
 
 ### Generating keys on-card
 
@@ -303,5 +311,27 @@ cmdSet.generateKey().checkOK();
 ```
 
 ### Importing an EC keypair
+
+You can import on the keycard any EC keypair on the SECP256k1 curve, with or without the BIP32 extension. If your import 
+a key without the BIP32 extension, then key derivation will not work, but you will still be able to use the Keycard for 
+signing transactions using the imported key. This scenario can be useful if you are migrating from a wallet not using 
+BIP39 passphrases or for wallets following some custom generation rules. It is however generally preferable to use one 
+of the methods presented above.
+
+An example of key import is
+
+```java
+// privKey is the S component of the key, as a 32-byte long byte array
+// chainCode is the extension to the keypair defined by BIP32, this is another 32-byte long byte array. Can be null, in
+// which case the created wallet won't be BIP32 compatible.
+// pubKey is the DER encoded, uncompressed public key. Can be null, in which case it is automatically calculated from
+// the private key.
+BIP32KeyPair keypair = new BIP32KeyPair(privKey, chainCode, pubKey);
+
+// Loads the keypair
+cmdSet.loadKey(keypair).checkOK();
+```
+
+## Key derivation
 
 
