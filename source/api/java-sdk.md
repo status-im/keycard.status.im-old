@@ -334,4 +334,113 @@ cmdSet.loadKey(keypair).checkOK();
 
 ## Key derivation
 
+As mentioned before, the Keycard is a BIP32 compatible wallet. This means that it can perform key derivation as defined
+by the BIP32 specification in order to create a hierarchical deterministic wallet. When deriving a key, this key becomes
+active, which means that it will be used for all signing operations until a key with a different path is derived. The
+active key is persisted across sessions, meaning that a power loss or applet reselection does not reset it.
+
+When creating or importing a wallet to the Keycard, the active key is the master key. Unless you imported a non-BIP32 
+compatible wallet, you usually want to set the active key to a currency account by following the BIP44 specifications for
+paths. Note that the maximum depth of the key path is 10, excluding the master key.
+
+Key derivation requires user authentication
+
+Since a line of code is worth a thousand words, below is an example of deriving a standard key path
+
+```java
+cmdSet.deriveKey("m/44'/0'/0'/0/0").checkOK();
+```
+
+Since deriving a key is an expensive operation, you usually want to know what the current path is before performing
+derivation. You can do this with
+
+```java
+// you can then get is as a string with currentPath.toString()
+KeyPath currentPath = new KeyPath(cmdSet.getStatus(KeycardCommandSet.GET_STATUS_P1_KEY_PATH).checkOK().getData());
+```
+
+To speed up operations, key derivation can be started not only from the master key, but also from the parent or the
+current key. The path in this case starts respectively with "../" and "./". You cannot navigate the hierarchy with
+multiple ".." in the paths, because only the direct parent of the current key is cached. Derivation from parent is
+especially convenient when switching between accounts of the same type. Example
+
+```java
+// Derive the main account
+cmdSet.deriveKey("m/44'/0'/0'/0/0").checkOK();
+
+// switch a secondary account, equivalent to "m/44'/0'/0'/0/1" but much faster
+cmdSet.deriveKey("../1").checkOK();
+
+// you can switch back and forth between siblings without limitations.
+cmdSet.deriveKey("../0").checkOK();
+```
+
+## Signing
+
+Your Keycard has been initialized, has a wallet and you have derived the keypath you need. You can now perform
+transactions by signing them with the card. Since the Keycard has no user input/output capabilities, it would be useless
+to transfer the entire transaction to the card for signing. You should instead calculate the transaction hash, according
+to the rules of the cryptocurrency you are handling and send that for signature instead. This also means, that you can
+handle anything which requires ECDSA signatures over SECP256k1 curve, regardless of the used hashing algorithm (at the
+condition that it output a 256-bit hash of course). This opens the door to signing transactions for the most common
+cryptocurrencies, but also makes it usable outside the realm of crypto transactions.
+
+Signing is done as
+```java
+// hash is the hash to sign, for example the Keccak-256 hash of an Ethereum transaction
+// the signature object contains r, s, recId and the public key associated to this signature
+RecoverableSignature signature = new RecoverableSignature(hash, cmdSet.sign(hash).checkOK().getData());
+```
+
+Signing requires user authentication.
+
+## Exporting (public or EIP-1581 compliant) keys
+
+Sorry for the long title, but let's make it immediately clear: the keys used to sign transactions never leave the card
+and cannot be exported. You can however export any public key as well as the private key of keypaths defined in the
+[EIP-1581 specifications](https://eips.ethereum.org/EIPS/eip-1581). Those keys, by design, are not to be used for
+transactions but are instead usable for operations with lower security concerns where caching or storing the key outside
+the card might be beneficial from an UX point of view. Of course, exporting a key always requires user authentication.
+
+### Exporting the current key
+
+```java
+// Exports the current public key. This is allowed for any key path
+BIP32KeyPair publicKey = BIP32KeyPair.fromTLV(cmdSet.exportCurrentKey(true).checkOK().getData());
+
+// Exports the entire key pair. This is only allowed for key path following the EIP-1581 definition
+BIP32KeyPair keypair = BIP32KeyPair.fromTLV(cmdSet.exportCurrentKey(false).checkOK().getData());
+```
+
+### Derive & export
+
+The export command is very powerful, since it allows you to derive & export a key in one step. You have the option to
+make the derived and exported key active or leave the active key untouched. You can also decide whether to export only
+the public key or the entire keypair (following the rules defined above).
+
+A very convenient use case is deriving an account key and retrieving the public key in one step. This is faster than
+doing it with two commands (derive key and export public), because every command processed has some overhead. Example
+
+```java
+// The first parameter is the keypath, the second tells whether that you want to make the derived & exported key active
+// and the third tells that you only want the public key to be exported.
+BIP32KeyPair publicKey = BIP32KeyPair.fromTLV(cmdSet.exportKey("m/44'/0'/0'/0/0", true, true).checkOK().getData());
+
+// The line above is equivalent to
+// cmdSet.deriveKey("m/44'/0'/0'/0/0").checkOK();
+// BIP32KeyPair publicKey = BIP32KeyPair.fromTLV(cmdSet.exportCurrentKey(true).checkOK().getData());
+```
+
+Another use case, is to export keys defined by EIP-1581 without changing the current active key, since you won't be
+signing with the exported key using the card
+
+```java
+// Let's assume the current active path is "m/44'/0'/0'/0/0"
+
+// The first parameter is the key path, the second tells that you do not want to make it current and the third that you
+// want the entire keypair, not only the public key
+BIP32KeyPair keypair = BIP32KeyPair.fromTLV(cmdSet.exportKey("m/43'/60'/1581'/0'/0", false, false).checkOK().getData());
+
+// At this point, the current active path would still be "m/44'/0'/0'/0/0"
+```
 
