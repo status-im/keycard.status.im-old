@@ -458,7 +458,7 @@ BIP32KeyPair keypair = BIP32KeyPair.fromTLV(cmdSet.exportKey("m/43'/60'/1581'/0'
 // At this point, the current active path would still be "m/44'/0'/0'/0/0"
 ```
 
-### Changing credentials
+## Changing credentials
 
 All credentials of the Keycard can be changed (PIN, PUK, pairing password). Changing the pairing password does not
 invalidate existing pairings, but applies to the ones which can be created in the future. Changing credentials,
@@ -474,3 +474,30 @@ cmdSet.changePUK("123456123456").checkOK();
 // Changes the pairing password
 cmdSet.changePairingPassword("my pairing password").checkOK();
 ```
+
+## Backup
+
+Card backups are especially relevant when the keys have been generated on-card, without using BIP39 mnemonic (or when
+this has been destroyed). Backups are, of course, encrypted. Encrypted backups are however only secure if the client
+does not possess the (full) encryption key. For this reason, a scheme where multiple clients are used and none of them
+has the full key has been devised. From the user point of view, the backup process goes like this
+
+1. Take a card which is the source of the backup and one or more target cards where the backup will be restored
+2. On one of the user's clients initiate the backup. This involves entering the PIN of each of the involved cards
+3. Tap all cards to one or more additional clients (the amount must be defined before, the order is irrelevant). These
+   clients do not need to be paired or be trusted, so the user can borrow a friend's phone without compromising security.
+   This step does not require entering a PIN
+4. On one of the user's clients, usually the same which initiated the backup (must be paired, trusted) finalize the backup
+   by first tapping the source card and then all target cards, again inserting the PIN for each.
+   
+At the end of procedure, each card will have the same master key, but PIN, PUK and pairing key remain unchanged and are
+independent from each other. A client could propose changing them to be all the same if desired or do this automatically. 
+All cards are fully functional, so at this point there isn't any difference between the "master" card and the backups.
+
+Since the cards are still protected by the PIN, these can be stored remotely in moderately trusted places to recover
+from lost or destroyed cards. The backup has been performed securely since no client ever had the full encryption key
+and no authentication credentials has been inserted on untrusted clients. For flexibility reason, an arbitrary number of
+clients can be used. Using a single client could be convenient from an UX point of view, but relies on said client not
+being compromised. Using 2 or 3 clients greatly increases security. More than 3 clients is probably an overkill.
+
+ 
