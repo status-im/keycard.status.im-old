@@ -317,7 +317,7 @@ cmdSet.loadKey(Mnemonic.toBinarySeed(passphrase, password)).checkOK();
 ### Generating keys on-card
 
 This is the simplest and safest method, because the generated wallet never leaves the card and there is no "paper backup" 
-to keep secure. It is possible to create secure backups of the wallet on other Keycards, with a mechanism described in
+to keep secure. It is possible to create secure duplicates of the wallet on other Keycards, with a mechanism described in
 later chapters. Using the SDK, you simply do
 
 ```java
@@ -475,29 +475,29 @@ cmdSet.changePUK("123456123456").checkOK();
 cmdSet.changePairingPassword("my pairing password").checkOK();
 ```
 
-## Backup
+## Duplication
 
-Card backups are especially relevant when the keys have been generated on-card, without using BIP39 mnemonic (or when
-this has been destroyed). Backups are, of course, encrypted. Encrypted backups are however only secure if the client
-does not possess the (full) encryption key. For this reason, a scheme where multiple clients are used and none of them
-has the full key has been devised. From the user point of view, the backup process goes like this
+Card duplication is especially relevant when the keys have been generated on-card, without using BIP39 mnemonic (or when
+this has been destroyed). To make duplication secure the client must not possess the (full) encryption key. For this
+reason, a scheme where multiple clients are used and none of them has the full key has been devised. From the user point 
+of view, the duplication process goes like this
 
-1. Take a card which is the source of the backup and one or more target cards where the backup will be restored
-2. On one of the user's clients initiate the backup. This involves entering the PIN of each of the involved cards
+1. Take the card to be duplicated (source) and one or more cards to duplicate to (target)
+2. On one of the user's clients initiate the duplication. This involves entering the PIN of each of the involved cards
 3. Tap all cards to one or more additional clients (the amount must be defined before, the order is irrelevant). These
    clients do not need to be paired or be trusted, so the user can borrow a friend's phone without compromising security.
    This step does not require entering a PIN
-4. On one of the user's clients, usually the same which initiated the backup (must be paired, trusted) finalize the backup
-   by first tapping the source card and then all target cards, again inserting the PIN for each.
+4. On one of the user's clients, usually the same which initiated the duplication (must be paired, trusted) finalize the
+   duplication by first tapping the source card and then all target cards, again inserting the PIN for each.
    
 At the end of procedure, each card will have the same master key, but PIN, PUK and pairing key remain unchanged and are
 independent from each other. A client could propose changing them to be all the same if desired or do this automatically. 
-All cards are fully functional, so at this point there isn't any difference between the "master" card and the backups.
+All cards are fully functional, so at this point there isn't any difference between the source card and the targets.
 
 Since the cards are still protected by the PIN, these can be stored remotely in moderately trusted places to recover
-from lost or destroyed cards. The backup has been performed securely since no client ever had the full encryption key
-and no authentication credentials has been inserted on untrusted clients. For flexibility reason, an arbitrary number of
-clients can be used. Using a single client could be convenient from an UX point of view, but relies on said client not
+from lost or destroyed cards. The duplication has been performed securely since no client ever had the full encryption 
+key and no authentication credentials has been inserted on untrusted clients. For flexibility reason, an arbitrary number 
+of clients can be used. Using a single client could be convenient from an UX point of view, but relies on said client not
 being compromised. Using 2 or 3 clients greatly increases security. More than 3 clients is probably an overkill.
 
  
