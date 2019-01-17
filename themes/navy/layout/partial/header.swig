@@ -4,7 +4,7 @@
         {{ partial('partial/shared-partials/partials/header-nav') }}
     </div>
     <div class="header-right">
-        <a href="http://get.status.im/chat/public/status-incubate" class="button button--secondary" style="margin-right: 8px">Join Status Chat</a>
+        <a href="http://get.status.im/chat/public/status-keycard" class="button button--secondary" style="margin-right: 8px">Join Status Chat</a>
     </div>
 </div>
 

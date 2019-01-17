@@ -29,7 +29,7 @@
                             <h4>Keycard</h4>
                             <p class="secondary-text">A hardware wallet in the form of a card with a safe, contactless transaction experience</p>
                         </div>
-                        <div class="card-community-more__link"><a href="https://hardwallet.status.im/" class="link-arrow">Learn more</a></div>
+                        <div class="card-community-more__link"><a href="https://keycard.status.im/" class="link-arrow">Learn more</a></div>
                     </div>
                 </div>
             </div>
