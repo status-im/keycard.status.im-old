@@ -6,7 +6,7 @@ title: Keycard Java SDK
 ## Installation
 
 You can import the SDK in your Gradle or Maven project using [Jitpack.io](https://jitpack.io). If using Gradle, to use
-JitPack all you have to do is insert these lines in you ```build.gradle``` file
+JitPack all you have to do is insert these lines in you `build.gradle` file
 
 ```groovy
 allprojects {
@@ -36,9 +36,7 @@ In both case, you will have the same SDK, except for the way connection with the
 
 ## Connecting to the card (Android)
 
-On Android, the NFC connection handling must happen on a thread separate from the UI thread. The SDK provides the class
-```NFCCardManager``` to handle this. This an example activity starting the NFC reader and handling the connection to the
-card. Refer to the comments in the example for more information.
+On Android, the NFC connection handling must happen on a thread separate from the UI thread. The SDK provides the class `NFCCardManager` to handle this. This an example activity starting the NFC reader and handling the connection to the card. Refer to the comments in the example for more information.
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -97,9 +95,7 @@ public class MainActivity extends AppCompatActivity {
 
 ## Connecting to the card (Desktop)
 
-On the desktop we use the javax.smartcardio library. There are several ways to handle connections, the important part is
-getting a CardChannel open. Below is an example of how this can be achieved (assumes that a single smartcard reader is
-connected).
+On the desktop we use the javax.smartcardio library. There are several ways to handle connections, the important part is getting a CardChannel open. Below is an example of how this can be achieved (assumes that a single smartcard reader is connected).
 
 ```java
 // We create a TerminalFactory object
@@ -129,27 +125,21 @@ PCSCCardChannel apduChannel = new PCSCCardChannel(apduCard.getBasicChannel());
 
 ## Working with the card
 
-Regardless whether you are on Android or desktop, you should at this point have an implementation of the CardChannel
-interface (be it NFCCardChannel or PCSCCardChannel). You can now start working with the card. The first thing to do is
-creating a ```KeycardCommandSet``` instance. This class gives access to all of the applet functionality, wrapping the
-low-level APDUs in easy to use methods. All other classes in the SDK are helper to format parameters and parse responses
-from the card. To create a command set, just do
+Regardless whether you are on Android or desktop, you should at this point have an implementation of the CardChannel interface (be it NFCCardChannel or PCSCCardChannel). You can now start working with the card. The first thing to do is creating a `KeycardCommandSet` instance. This class gives access to all of the applet functionality, wrapping the low-level APDUs in easy to use methods. All other classes in the SDK are helper to format parameters and parse responses from the card. To create a command set, just do
 
 ```java
 // cardChannel is our CardChannel instance
 KeycardCommandSet cmdSet = new KeycardCommandSet(cardChannel);
 ```
 
-Modern SmartCards can have several applications installed, so after connection with the card you need to select the
-Keycard applet. This is easily done with
+Modern SmartCards can have several applications installed, so after connection with the card you need to select the Keycard applet. This is easily done with
 
 ```java
 // The checkOK method can be called on any APDUResponse object to confirm that the
 cmdSet.select().checkOK();
 ```
 
-While this correctly selects the applet, it discards the card response, which contains information that can be useful
-to identify this specific card and its state. For this reason we could rewrite this as
+While this correctly selects the applet, it discards the card response, which contains information that can be useful to identify this specific card and its state. For this reason we could rewrite this as
 
 ```java
 ApplicationInfo info = new ApplicationInfo(cmdSet.select().checkOK().getData());
@@ -179,15 +169,11 @@ info.hasMasterKey();
 info.getKeyUID();
 ```
 
-After the applet is selected, you can start working with it. Note that the application remains selected until another
-applet is explicitly selected, or the card is powered off (for example is removed from the field)
+After the applet is selected, you can start working with it. Note that the application remains selected until another applet is explicitly selected, or the card is powered off (for example is removed from the field)
 
 ### Initialization
 
-This step is necessary to bring the initial credentials on the Keycard instance. When the card is not initialized, it 
-cannot perform any operation. Initialization sets the initial PIN, PUK and pairing password and requires no 
-authentication, but still uses a SecureChannel resistant to passive MITM attacks. Once the card is initialized, it
-cannot be initialized again (but credentials can be different with a different mechanism with previous authentication).
+This step is necessary to bring the initial credentials on the Keycard instance. When the card is not initialized, it cannot perform any operation. Initialization sets the initial PIN, PUK and pairing password and requires no authentication, but still uses a SecureChannel resistant to passive MITM attacks. Once the card is initialized, it cannot be initialized again (but credentials can be different with a different mechanism with previous authentication).
 
 Initialization is done with
 
@@ -203,12 +189,7 @@ if (!info.isInitializedCard()) {
 
 ### Pairing
 
-Clients wishing to communicate with the card, need to pair with it first. This allows creating secure channels resistant
-not only to passive but also to active MITM attacks. Although pairing allows the card and the client to authenticate
-each other, the card does not grant access to any operation with the wallet until the user is authenticated (by verifying
-its PIN). To establish the pairing, the client needs to know the pairing password. After it is established, the pairing
-info (not the password) must be stored as securely as possible on the client for subsequent sessions. You should
-store the pairing information together with the instance UID to simplify handling of multiple cards.
+Clients wishing to communicate with the card, need to pair with it first. This allows creating secure channels resistant not only to passive but also to active MITM attacks. Although pairing allows the card and the client to authenticate each other, the card does not grant access to any operation with the wallet until the user is authenticated (by verifying its PIN). To establish the pairing, the client needs to know the pairing password. After it is established, the pairing info (not the password) must be stored as securely as possible on the client for subsequent sessions. You should store the pairing information together with the instance UID to simplify handling of multiple cards.
 
 Only 5 clients can be paired at once, but it is possible to unpair previously paired clients.
 
@@ -236,11 +217,7 @@ cmdSet.setPairing(pairing);
 
 ### Secure Channel
 
-After a pairing has been established, a secure channel can be opened. Before opening a secure channel, the card won't
-allow sending any command. This guarantees secrecy, integrity and authenticity of the commands. Opening a secure channel
-must be performed every time the applet is selected (this means also after a power loss). After opening it, the SDK
-handles the secure channel transparently, encrypting and signing all command APDUs and decrypting and verifying the
-signature of all responses. To open a secure channel all you need to do is
+After a pairing has been established, a secure channel can be opened. Before opening a secure channel, the card won't allow sending any command. This guarantees secrecy, integrity and authenticity of the commands. Opening a secure channel must be performed every time the applet is selected (this means also after a power loss). After opening it, the SDK handles the secure channel transparently, encrypting and signing all command APDUs and decrypting and verifying the signature of all responses. To open a secure channel all you need to do is
 
 ```java
 cmdSet.autoOpenSecureChannel();
@@ -248,11 +225,9 @@ cmdSet.autoOpenSecureChannel();
 
 ### Authenticating the user
 
-Most operations with the card (all involving operations with the wallet or credentials) require authenticating the user.
-After authentication, the user remains authenticated until the card is powered off or the application is re-selected.
+Most operations with the card (all involving operations with the wallet or credentials) require authenticating the user. After authentication, the user remains authenticated until the card is powered off or the application is re-selected.
 
-Authentication is performed by verifying the user PIN. Note that this piece of information is sensitive and must be
-handled accordingly in the application. PIN verification is done with a single step
+Authentication is performed by verifying the user PIN. Note that this piece of information is sensitive and must be handled accordingly in the application. PIN verification is done with a single step
 
 ```java
 // pin is the user PIN as a string of 6 digits
@@ -263,11 +238,7 @@ try {
 }
 ```
 
-if the PIN is wrong, you will receive an error SW in the format 0x63CX where X is the number of attempts remaining. When
-the number of remaining attempts is 0, the card is blocked. The user must then enter the PUK and a new PIN to restore
-access to the card. The maximum number of retries for the PUK is 5. To simplify things, the ```APDUResponse.checkAuthOK()```
-method can be used to verify if the authentication was correct, and if not throw a ```WrongPINException``` which contains 
-the number of remaining attempts.
+if the PIN is wrong, you will receive an error SW in the format 0x63CX where X is the number of attempts remaining. When the number of remaining attempts is 0, the card is blocked. The user must then enter the PUK and a new PIN to restore access to the card. The maximum number of retries for the PUK is 5. To simplify things, the `APDUResponse.checkAuthOK()` method can be used to verify if the authentication was correct, and if not throw a `WrongPINException` which contains the number of remaining attempts.
 
 ```java
 cmdSet.unblockPIN(puk, newPIN).checkAuthOK();
@@ -275,20 +246,11 @@ cmdSet.unblockPIN(puk, newPIN).checkAuthOK();
 
 ## Creating a wallet
 
-To actually use the Keycard, it needs to have a wallet. This can be achieved in several different ways, which one you
-choose depends on your usage scenario. Creating a wallet requires user authentication and is possible even if a wallet
-already exists on the card (the new wallet replaces the old one). Use the ```ApplicationInfo.hasMasterKey()``` method
-to determine if the card already has a wallet or not. Note that the response of the ```KeycardCommandSet.loadKey``` method
-contains the key UID of the created wallet. This UID can be stored to keep track of this specific wallet in the client.
-The UID is tied to the key itself (is derived from the public key) so it will change if the wallet on card is replaced.
-The key UID is also part of the response of the applet selection command, so the wallet can be identified immediately
-upon selection.
+To actually use the Keycard, it needs to have a wallet. This can be achieved in several different ways, which one you choose depends on your usage scenario. Creating a wallet requires user authentication and is possible even if a wallet already exists on the card (the new wallet replaces the old one). Use the `ApplicationInfo.hasMasterKey()` method to determine if the card already has a wallet or not. Note that the response of the `KeycardCommandSet.loadKey` method contains the key UID of the created wallet. This UID can be stored to keep track of this specific wallet in the client. The UID is tied to the key itself (is derived from the public key) so it will change if the wallet on card is replaced. The key UID is also part of the response of the applet selection command, so the wallet can be identified immediately upon selection.
 
 ### Creating a BIP39 mnemonic phrase
 
-This method is great for interoperability with other wallets. The card can assist in creating the mnemonic phrase, since 
-it features a TRNG. Generating the mnemonic itself does not require user authentication (since it does not modify the
-card state), but loading the key derived from it does. Example of the entire procedure is below
+This method is great for interoperability with other wallets. The card can assist in creating the mnemonic phrase, since it features a TRNG. Generating the mnemonic itself does not require user authentication (since it does not modify the card state), but loading the key derived from it does. Example of the entire procedure is below
 
 ```java
 // Generates a Mnemonic object from the card. You can choose between generating 12, 15, 18, 21 or 24 words
@@ -316,9 +278,7 @@ cmdSet.loadKey(Mnemonic.toBinarySeed(passphrase, password)).checkOK();
 
 ### Generating keys on-card
 
-This is the simplest and safest method, because the generated wallet never leaves the card and there is no "paper backup" 
-to keep secure. It is possible to create secure duplicates of the wallet on other Keycards, with a mechanism described in
-later chapters. Using the SDK, you simply do
+This is the simplest and safest method, because the generated wallet never leaves the card and there is no "paper backup" to keep secure. It is possible to create secure duplicates of the wallet on other Keycards, with a mechanism described in later chapters. Using the SDK, you simply do
 
 ```java
 cmdSet.generateKey().checkOK();
@@ -326,11 +286,7 @@ cmdSet.generateKey().checkOK();
 
 ### Importing an EC keypair
 
-You can import on the keycard any EC keypair on the SECP256k1 curve, with or without the BIP32 extension. If your import 
-a key without the BIP32 extension, then key derivation will not work, but you will still be able to use the Keycard for 
-signing transactions using the imported key. This scenario can be useful if you are migrating from a wallet not using 
-BIP39 passphrases or for wallets following some custom generation rules. It is however generally preferable to use one 
-of the methods presented above.
+You can import on the keycard any EC keypair on the SECP256k1 curve, with or without the BIP32 extension. If your import a key without the BIP32 extension, then key derivation will not work, but you will still be able to use the Keycard for signing transactions using the imported key. This scenario can be useful if you are migrating from a wallet not using BIP39 passphrases or for wallets following some custom generation rules. It is however generally preferable to use one of the methods presented above.
 
 An example of key import is
 
@@ -348,14 +304,9 @@ cmdSet.loadKey(keypair).checkOK();
 
 ## Key derivation
 
-As mentioned before, the Keycard is a BIP32 compatible wallet. This means that it can perform key derivation as defined
-by the BIP32 specification in order to create a hierarchical deterministic wallet. When deriving a key, this key becomes
-active, which means that it will be used for all signing operations until a key with a different path is derived. The
-active key is persisted across sessions, meaning that a power loss or applet reselection does not reset it.
+As mentioned before, the Keycard is a BIP32 compatible wallet. This means that it can perform key derivation as defined by the BIP32 specification in order to create a hierarchical deterministic wallet. When deriving a key, this key becomes active, which means that it will be used for all signing operations until a key with a different path is derived. The active key is persisted across sessions, meaning that a power loss or applet reselection does not reset it.
 
-When creating or importing a wallet to the Keycard, the active key is the master key. Unless you imported a non-BIP32 
-compatible wallet, you usually want to set the active key to a currency account by following the BIP44 specifications for
-paths. Note that the maximum depth of the key path is 10, excluding the master key.
+When creating or importing a wallet to the Keycard, the active key is the master key. Unless you imported a non-BIP32 compatible wallet, you usually want to set the active key to a currency account by following the BIP44 specifications for paths. Note that the maximum depth of the key path is 10, excluding the master key.
 
 Key derivation requires user authentication
 
@@ -365,18 +316,14 @@ Since a line of code is worth a thousand words, below is an example of deriving 
 cmdSet.deriveKey("m/44'/0'/0'/0/0").checkOK();
 ```
 
-Since deriving a key is an expensive operation, you usually want to know what the current path is before performing
-derivation. You can do this with
+Since deriving a key is an expensive operation, you usually want to know what the current path is before performing derivation. You can do this with
 
 ```java
 // you can then get is as a string with currentPath.toString()
 KeyPath currentPath = new KeyPath(cmdSet.getStatus(KeycardCommandSet.GET_STATUS_P1_KEY_PATH).checkOK().getData());
 ```
 
-To speed up operations, key derivation can be started not only from the master key, but also from the parent or the
-current key. The path in this case starts respectively with "../" and "./". You cannot navigate the hierarchy with
-multiple ".." in the paths, because only the direct parent of the current key is cached. Derivation from parent is
-especially convenient when switching between accounts of the same type. Example
+To speed up operations, key derivation can be started not only from the master key, but also from the parent or the current key. The path in this case starts respectively with "../" and "./". You cannot navigate the hierarchy with multiple ".." in the paths, because only the direct parent of the current key is cached. Derivation from parent is especially convenient when switching between accounts of the same type. Example
 
 ```java
 // Derive the main account
@@ -391,15 +338,10 @@ cmdSet.deriveKey("../0").checkOK();
 
 ## Signing
 
-Your Keycard has been initialized, has a wallet and you have derived the keypath you need. You can now perform
-transactions by signing them with the card. Since the Keycard has no user input/output capabilities, it would be useless
-to transfer the entire transaction to the card for signing. You should instead calculate the transaction hash, according
-to the rules of the cryptocurrency you are handling and send that for signature instead. This also means, that you can
-handle anything which requires ECDSA signatures over SECP256k1 curve, regardless of the used hashing algorithm (at the
-condition that it output a 256-bit hash of course). This opens the door to signing transactions for the most common
-cryptocurrencies, but also makes it usable outside the realm of crypto transactions.
+Your Keycard has been initialized, has a wallet and you have derived the keypath you need. You can now perform transactions by signing them with the card. Since the Keycard has no user input/output capabilities, it would be useless to transfer the entire transaction to the card for signing. You should instead calculate the transaction hash, according to the rules of the cryptocurrency you are handling and send that for signature instead. This also means, that you can handle anything which requires ECDSA signatures over SECP256k1 curve, regardless of the used hashing algorithm (at the condition that it output a 256-bit hash of course). This opens the door to signing transactions for the most common cryptocurrencies, but also makes it usable outside the realm of crypto transactions.
 
 Signing is done as
+
 ```java
 // hash is the hash to sign, for example the Keccak-256 hash of an Ethereum transaction
 // the signature object contains r, s, recId and the public key associated to this signature
@@ -410,11 +352,7 @@ Signing requires user authentication.
 
 ## Exporting (public or EIP-1581 compliant) keys
 
-Sorry for the long title, but let's make it immediately clear: the keys used to sign transactions never leave the card
-and cannot be exported. You can however export any public key as well as the private key of keypaths defined in the
-[EIP-1581 specifications](https://eips.ethereum.org/EIPS/eip-1581). Those keys, by design, are not to be used for
-transactions but are instead usable for operations with lower security concerns where caching or storing the key outside
-the card might be beneficial from an UX point of view. Of course, exporting a key always requires user authentication.
+Sorry for the long title, but let's make it immediately clear: the keys used to sign transactions never leave the card and cannot be exported. You can however export any public key as well as the private key of keypaths defined in the [EIP-1581 specifications](https://eips.ethereum.org/EIPS/eip-1581). Those keys, by design, are not to be used for transactions but are instead usable for operations with lower security concerns where caching or storing the key outside the card might be beneficial from an UX point of view. Of course, exporting a key always requires user authentication.
 
 ### Exporting the current key
 
@@ -428,12 +366,9 @@ BIP32KeyPair keypair = BIP32KeyPair.fromTLV(cmdSet.exportCurrentKey(false).check
 
 ### Derive & export
 
-The export command is very powerful, since it allows you to derive & export a key in one step. You have the option to
-make the derived and exported key active or leave the active key untouched. You can also decide whether to export only
-the public key or the entire keypair (following the rules defined above).
+The export command is very powerful, since it allows you to derive & export a key in one step. You have the option to make the derived and exported key active or leave the active key untouched. You can also decide whether to export only the public key or the entire keypair (following the rules defined above).
 
-A very convenient use case is deriving an account key and retrieving the public key in one step. This is faster than
-doing it with two commands (derive key and export public), because every command processed has some overhead. Example
+A very convenient use case is deriving an account key and retrieving the public key in one step. This is faster than doing it with two commands (derive key and export public), because every command processed has some overhead. Example
 
 ```java
 // The first parameter is the keypath, the second tells whether that you want to make the derived & exported key active
@@ -445,8 +380,7 @@ BIP32KeyPair publicKey = BIP32KeyPair.fromTLV(cmdSet.exportKey("m/44'/0'/0'/0/0"
 // BIP32KeyPair publicKey = BIP32KeyPair.fromTLV(cmdSet.exportCurrentKey(true).checkOK().getData());
 ```
 
-Another use case, is to export keys defined by EIP-1581 without changing the current active key, since you won't be
-signing with the exported key using the card
+Another use case, is to export keys defined by EIP-1581 without changing the current active key, since you won't be signing with the exported key using the card
 
 ```java
 // Let's assume the current active path is "m/44'/0'/0'/0/0"
@@ -460,9 +394,7 @@ BIP32KeyPair keypair = BIP32KeyPair.fromTLV(cmdSet.exportKey("m/43'/60'/1581'/0'
 
 ## Changing credentials
 
-All credentials of the Keycard can be changed (PIN, PUK, pairing password). Changing the pairing password does not
-invalidate existing pairings, but applies to the ones which can be created in the future. Changing credentials,
-requires user authentication.
+All credentials of the Keycard can be changed (PIN, PUK, pairing password). Changing the pairing password does not invalidate existing pairings, but applies to the ones which can be created in the future. Changing credentials, requires user authentication.
 
 ```java
 // Changes the user PIN
@@ -477,39 +409,25 @@ cmdSet.changePairingPassword("my pairing password").checkOK();
 
 ## Duplication
 
-Card duplication is especially relevant when the keys have been generated on-card, without using BIP39 mnemonic (or when
-this has been destroyed). To make duplication secure the client must not possess the (full) encryption key. For this
-reason, a scheme where multiple clients are used and none of them has the full key has been devised. From the user point 
-of view, the duplication process goes like this
+Card duplication is especially relevant when the keys have been generated on-card, without using BIP39 mnemonic (or when this has been destroyed). To make duplication secure the client must not possess the (full) encryption key. For this reason, a scheme where multiple clients are used and none of them has the full key has been devised. From the user point of view, the duplication process goes like this
 
 1. Take the card to be duplicated (source) and one or more cards to duplicate to (target)
 2. On one of the user's clients initiate the duplication. This involves entering the PIN of each of the involved cards
-3. Tap all cards to one or more additional clients (the amount must be defined before, the order is irrelevant). These
-   clients do not need to be paired or be trusted, so the user can borrow a friend's phone without compromising security.
-   This step does not require entering a PIN
-4. On one of the user's clients, usually the same which initiated the duplication (must be paired, trusted) finalize the
-   duplication by first tapping the source card and then all target cards, again inserting the PIN for each.
+3. Tap all cards to one or more additional clients (the amount must be defined before, the order is irrelevant). These clients do not need to be paired or be trusted, so the user can borrow a friend's phone without compromising security. This step does not require entering a PIN
+4. On one of the user's clients, usually the same which initiated the duplication (must be paired, trusted) finalize the duplication by first tapping the source card and then all target cards, again inserting the PIN for each.
    
-At the end of procedure, each card will have the same master key, but PIN, PUK and pairing key remain unchanged and are
-independent from each other. A client could propose changing them to be all the same if desired or do this automatically. 
-All cards are fully functional, so at this point there isn't any difference between the source card and the targets.
+At the end of procedure, each card will have the same master key, but PIN, PUK and pairing key remain unchanged and are independent from each other. A client could propose changing them to be all the same if desired or do this automatically. All cards are fully functional, so at this point there isn't any difference between the source card and the targets.
 
-Since the cards are still protected by the PIN, these can be stored remotely in moderately trusted places to recover
-from lost or destroyed cards. The duplication has been performed securely since no client ever had the full encryption 
-key and no authentication credentials has been inserted on untrusted clients. For flexibility reason, an arbitrary number 
-of clients can be used. Using a single client could be convenient from an UX point of view, but relies on said client not
-being compromised. Using 2 or 3 clients greatly increases security. More than 3 clients is probably an overkill.
+Since the cards are still protected by the PIN, these can be stored remotely in moderately trusted places to recover from lost or destroyed cards. The duplication has been performed securely since no client ever had the full encryption key and no authentication credentials has been inserted on untrusted clients. For flexibility reason, an arbitrary number of clients can be used. Using a single client could be convenient from an UX point of view, but relies on said client not being compromised. Using 2 or 3 clients greatly increases security. More than 3 clients is probably an overkill.
 
 From an implementation point of view, we have two different roles a client can take
 
 1. The trusted client, starting and performing the duplication
 2. The (possibly) untrusted clients, only adding entropy to the encryption key
 
-Both can be implemented by using the ```CardDuplicator``` class. On each client, the same instance of the 
-```CardDuplicator``` class must be used for the entire duplication process, otherwise duplication will fail.
+Both can be implemented by using the `CardDuplicator` class. On each client, the same instance of the `CardDuplicator` class must be used for the entire duplication process, otherwise duplication will fail.
 
-The trusted client must also provide an implementation of ```DuplicatorCallback```. This is needed to retrieve the
-Pairing and PIN for each card. Example below
+The trusted client must also provide an implementation of `DuplicatorCallback`. This is needed to retrieve the Pairing and PIN for each card. Example below
 
 ```java
 class MyDuplicatorCB implements DuplicatorCallback {
@@ -567,9 +485,7 @@ For the untrusted clients
 cardDuplicator = new CardDuplicator(apduChannel);
 ```
 
-Once the instance has been created, depending on the role and state the client must perform a specific action every time
-a new card is presented. The CardDuplicator keeps track of the action performed on any card, so if the user presents the
-same card twice an ```IllegalStateException``` exception is thrown.
+Once the instance has been created, depending on the role and state the client must perform a specific action every time a new card is presented. The CardDuplicator keeps track of the action performed on any card, so if the user presents the same card twice an `IllegalStateException` exception is thrown.
 
 To start duplication on a card, for example, you might do
 
