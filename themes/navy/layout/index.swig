@@ -2,16 +2,15 @@
      {{ partial('partial/header') }}
     <div class="site-specific-menu">
         <p>
-            <a class="site-name" href="/">keycard</a>
+            <a class="site-name" href="/">Keycard</a>
             <a class="specific-nav-link" href="/api/"><span>API</span></a>
-            <a class="specific-nav-link" href="/tutorials/"><span>Tutorials</span></a>
         </p>
     </div>
     <div class="intro">
         <h1>An Open Source Card For Everything, Evereywhere</h1>
         <p>We’re bringing crypto closer to real life with an open source Java card and API that anyone can use, anywhere.</p>
         <div class="intro-buttons">
-            <a class="button button--main" href="mailto:incubate@status.im">CONTACT US</a>
+            <a class="button button--main" href="mailto:keycard@status.im">CONTACT US</a>
         </div>
     </div>
 </div>
