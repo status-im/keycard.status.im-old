@@ -2,35 +2,35 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://status-im.github.io/keycard.status.im/public/api/index.html</loc>
+    <loc>https://keycard-dev.status.im/api/index.html</loc>
     
     <lastmod>2019-01-17T10:51:56.171Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://status-im.github.io/keycard.status.im/public/api/apdu.html</loc>
+    <loc>https://keycard-dev.status.im/api/apdu.html</loc>
     
     <lastmod>2019-01-17T10:48:03.682Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://status-im.github.io/keycard.status.im/public/news/2019/01/16/keycard/</loc>
+    <loc>https://keycard-dev.status.im/news/2019/01/16/keycard/</loc>
     
     <lastmod>2019-01-17T10:16:58.615Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://status-im.github.io/keycard.status.im/public/api/java-sdk.html</loc>
+    <loc>https://keycard-dev.status.im/api/java-sdk.html</loc>
     
     <lastmod>2019-01-17T08:29:06.580Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://status-im.github.io/keycard.status.im/public/index.html</loc>
+    <loc>https://keycard-dev.status.im/index.html</loc>
     
     <lastmod>2018-12-12T10:19:20.150Z</lastmod>
     

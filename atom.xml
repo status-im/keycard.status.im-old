@@ -5,9 +5,9 @@
   <subtitle>Keep Your Key Safe</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://status-im.github.io/keycard.status.im/public/"/>
+  <link href="https://keycard-dev.status.im/"/>
   <updated>2019-01-17T10:16:58.615Z</updated>
-  <id>https://status-im.github.io/keycard.status.im/public/</id>
+  <id>https://keycard-dev.status.im/</id>
   
   <author>
     <name>Status</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Status Keycard</title>
-    <link href="https://status-im.github.io/keycard.status.im/public/news/2019/01/16/keycard/"/>
-    <id>https://status-im.github.io/keycard.status.im/public/news/2019/01/16/keycard/</id>
+    <link href="https://keycard-dev.status.im/news/2019/01/16/keycard/"/>
+    <id>https://keycard-dev.status.im/news/2019/01/16/keycard/</id>
     <published>2019-01-16T00:00:00.000Z</published>
     <updated>2019-01-17T10:16:58.615Z</updated>
     
