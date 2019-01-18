@@ -2,7 +2,7 @@
 <html lang="en">
 <head prefix="og: http://ogp.me/ns#"><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
-  <title>Keycard API | Keycard</title>
+  <title>Getting Started | Keycard</title>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Canonical links -->
@@ -49,7 +49,7 @@
 
     </div>
     <div class="header-right">
-        <a href="http://get.status.im/chat/public/status-incubate" class="button button--secondary" style="margin-right: 8px">Join Status Chat</a>
+        <a href="http://get.status.im/chat/public/status-keycard" class="button button--secondary" style="margin-right: 8px">Join Status Chat</a>
     </div>
 </div>
 
@@ -186,7 +186,7 @@
                             <h4>Keycard</h4>
                             <p class="secondary-text">A hardware wallet in the form of a card with a safe, contactless transaction experience</p>
                         </div>
-                        <div class="card-community-more__link"><a href="https://hardwallet.status.im/" class="link-arrow">Learn more</a></div>
+                        <div class="card-community-more__link"><a href="https://keycard.status.im/" class="link-arrow">Learn more</a></div>
                     </div>
                 </div>
             </div>
@@ -226,7 +226,7 @@
 </div>
 <div class="page-intro wrapper">
   <header class="article-header">
-    <h1 class="article-title" itemprop="name">Keycard API</h1>
+    <h1 class="article-title" itemprop="name">Getting Started</h1>
     <a href="https://github.com/status-im/incubate.status.im/edit/develop/source/api/index.md" class="article-edit-link" title="Improve this doc">Edit on Github</a>
   </header>
 </div>
@@ -247,12 +247,16 @@
 <p>Communication with the Keycard happens through a simple APDU interface is provided, together with a Secure Channel guaranteeing confidentiality, authentication and integrity of all commands. It supports both NFC and ISO7816 physical interfaces, meaning that it is compatible with any Android phone equipped with NFC and all USB Smartcard readers.</p>
 <p>The most obvious case for integration of Keycard is crypto wallets (ETH, BTC, etc), however it can be used in other systems where a BIP-32 key tree is used and/or you perform authentication/identification.</p>
 <p>To further simplify integration, we have developed a Java-based API which can be used on both desktop and Android systems. On the desktop it uses the javax.smartcardio to interface with the card, which is compatible with most USB readers. On Android it uses the on-board NFC reader. If you develop in Java or any other language available, this is the easiest way to use the Keycard. </p>
-<p><a href="java-sdk.html">Read the documentation by clicking here</a></p>
+<p><a href="java-sdk.html">Read the SDK documentation</a></p>
 <p>If you use a different language, please first refer to the <a href="java-sdk.html">Java SDK</a> documentation for a high level overview of how to perform different tasks with the Keycard. Then, please check the <a href="apdu.html">APDU protocol documentation</a> out for the low-level details.</p>
+<h2 id="Resources" class="article-heading"><a href="#Resources" class="headerlink" title="Resources"></a>Resources<a class="article-anchor" href="#Resources" aria-hidden="true"></a></h2><ul>
+<li><a href="https://github.com/status-im/keycard-installer-android/releases" target="_blank" rel="noopener">Keycard Installer for Android</a></li>
+<li><a href="https://github.com/status-im/keycard-installer-android/blob/master/app/src/main/assets/keycard.cap?raw=true" target="_blank" rel="noopener">Latest Keycard Applet</a></li>
+</ul>
 
               </div>
               <footer class="article-footer">
-                <time class="article-footer-updated" datetime="2019-01-17T08:38:39.931Z" itemprop="dateModified">Last updated: 2019-01-17</time>
+                <time class="article-footer-updated" datetime="2019-01-17T10:51:56.171Z" itemprop="dateModified">Last updated: 2019-01-17</time>
                 <a href="java-sdk.html" class="article-footer-next" title="Java SDK"><span>Next</span><i class="fa fa-chevron-right"></i></a>
               </footer>
             </div>
