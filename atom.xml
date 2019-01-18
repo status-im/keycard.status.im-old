@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Keycard</title>
+  
+  <subtitle>Keep Your Key Safe</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://dev-keycard.status.im/"/>
+  <updated>2019-01-17T10:16:58.615Z</updated>
+  <id>https://dev-keycard.status.im/</id>
+  
+  <author>
+    <name>Status</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Status Keycard</title>
+    <link href="https://dev-keycard.status.im/news/2019/01/16/keycard/"/>
+    <id>https://dev-keycard.status.im/news/2019/01/16/keycard/</id>
+    <published>2019-01-16T00:00:00.000Z</published>
+    <updated>2019-01-17T10:16:58.615Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
