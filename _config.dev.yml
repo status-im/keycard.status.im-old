@@ -5,7 +5,7 @@ author: Status
 language: en
 timezone: UTC
 
-url: https://dev-keycard.status.im/
+url: https://status-im.github.io/keycard.status.im/public/
 root: /
 permalink: news/:year/:month/:day/:title/
 archive_dir: news
@@ -19,7 +19,7 @@ deploy:
   type: git
   branch: gh-pages
   name: status-im-auto
-  repo: git@github.com:bitgamma/keycard.status.im.git
+  repo: git@github.com:status-im/keycard.status.im.git
 
 theme_config:
     favicon: img/logo-32.png
@@ -27,7 +27,3 @@ theme_config:
 highlight:
   enable: true
   line_number: false
-
-disqus_shortname: hexojs
-twitter: cryptowanderer
-github: bitgamma

@@ -19,7 +19,7 @@ deploy:
   type: git
   branch: gh-pages
   name: status-im-auto
-  repo: git@github.com:bitgamma/keycard.status.im.git
+  repo: git@github.com:status-im/keycard.status.im.git
 
 theme_config:
     favicon: img/logo-32.png
@@ -28,6 +28,3 @@ highlight:
   enable: true
   line_number: false
 
-disqus_shortname: hexojs
-twitter: cryptowanderer
-github: bitgamma
