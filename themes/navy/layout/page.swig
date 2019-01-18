@@ -1,7 +1,7 @@
 <div class="site-specific-menu">
     <p>
-        <a class="site-name" href="/">Keycard</a>
-        <a class="specific-nav-link" href="/api/"><span>API</span></a>
+        <a class="site-name" href="{{ url_for('/') }}">Keycard</a>
+        <a class="specific-nav-link" href="{{ url_for('/api') }}"><span>API</span></a>
     </p>
 </div>
 <div class="page-intro wrapper">
