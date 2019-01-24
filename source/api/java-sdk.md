@@ -1,6 +1,6 @@
 ---
 id: java-sdk
-title: Keycard Java SDK
+title: Keycard Java SDK 2.0
 ---
 
 ## Installation
