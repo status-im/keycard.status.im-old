@@ -2,15 +2,15 @@
 <html lang="en">
 <head prefix="og: http://ogp.me/ns#"><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
-  <title>Overview | Keycard</title>
+  <title>Exporting (public or EIP-1581 compliant) keys | Keycard</title>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://status-im.github.io/keycard.status.im/api/index.html">
+  <link rel="canonical" href="https://status-im.github.io/keycard.status.im/api/sdk_export.html">
   <!-- Alternative links -->
   
     
-      <link rel="alternative" hreflang="en" href="https://status-im.github.io/keycard.status.im/api/index.html">
+      <link rel="alternative" hreflang="en" href="https://status-im.github.io/keycard.status.im/api/sdk_export.html">
     
   
   <!-- Icon -->
@@ -226,8 +226,8 @@
 </div>
 <div class="page-intro wrapper">
   <header class="article-header">
-    <h1 class="article-title" itemprop="name">Overview</h1>
-    <a href="https://github.com/status-im/incubate.status.im/edit/develop/source/api/index.md" class="article-edit-link" title="Improve this doc">Edit on Github</a>
+    <h1 class="article-title" itemprop="name">Exporting (public or EIP-1581 compliant) keys</h1>
+    <a href="https://github.com/status-im/incubate.status.im/edit/develop/source/api/sdk_export.md" class="article-edit-link" title="Improve this doc">Edit on Github</a>
   </header>
 </div>
 <div id="content-wrap">
@@ -235,7 +235,7 @@
     <div id="content-inner">
     <aside id="sidebar" role="navigation">
   <div class="inner">
-    <strong class="sidebar-title">Getting Started</strong><a href="index.html" class="sidebar-link current">Overview</a><a href="applet_installation.html" class="sidebar-link">Preparing the card</a><strong class="sidebar-title">Java SDK</strong><a href="sdk_installation.html" class="sidebar-link">Installation</a><a href="sdk_connection.html" class="sidebar-link">Connecting to the card</a><a href="sdk_preparation.html" class="sidebar-link">Working with the applet</a><a href="sdk_securechannel.html" class="sidebar-link">Secure Channel</a><a href="sdk_authentication.html" class="sidebar-link">User authentication</a><a href="sdk_create_wallet.html" class="sidebar-link">Wallet creation</a><a href="sdk_derivation_sign.html" class="sidebar-link">Derivation & signing</a><a href="sdk_export.html" class="sidebar-link">Exporting keys</a><a href="sdk_duplication.html" class="sidebar-link">Card duplication</a><strong class="sidebar-title">APDU Protocol</strong><a href="apdu.html" class="sidebar-link">APDU Protocol</a>
+    <strong class="sidebar-title">Getting Started</strong><a href="index.html" class="sidebar-link">Overview</a><a href="applet_installation.html" class="sidebar-link">Preparing the card</a><strong class="sidebar-title">Java SDK</strong><a href="sdk_installation.html" class="sidebar-link">Installation</a><a href="sdk_connection.html" class="sidebar-link">Connecting to the card</a><a href="sdk_preparation.html" class="sidebar-link">Working with the applet</a><a href="sdk_securechannel.html" class="sidebar-link">Secure Channel</a><a href="sdk_authentication.html" class="sidebar-link">User authentication</a><a href="sdk_create_wallet.html" class="sidebar-link">Wallet creation</a><a href="sdk_derivation_sign.html" class="sidebar-link">Derivation & signing</a><a href="sdk_export.html" class="sidebar-link current">Exporting keys</a><a href="sdk_duplication.html" class="sidebar-link">Card duplication</a><strong class="sidebar-title">APDU Protocol</strong><a href="apdu.html" class="sidebar-link">APDU Protocol</a>
   </div>
 </aside>
       <article class="article-container" itemscope="" itemtype="http://schema.org/Article">
@@ -243,18 +243,18 @@
           <div class="article">
             <div class="inner">
               <div class="article-content" itemprop="articleBody">
-                <h1 id="Overview" class="article-heading"><a href="#Overview" class="headerlink" title="Overview"></a>Overview<a class="article-anchor" href="#Overview" aria-hidden="true"></a></h1><p>Keycard provides to developer an hardware implementation of a <a href="https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki" target="_blank" rel="noopener">BIP-32</a> HD wallet. This means it supports key generation, derivation and signing. It also allows exporting keys defined in the context of <a href="https://eips.ethereum.org/EIPS/eip-1581" target="_blank" rel="noopener">EIP-1581</a>.</p>
-<p>Communication with the Keycard happens through a simple APDU interface, together with a Secure Channel guaranteeing confidentiality, authentication and integrity of all commands. It supports both NFC and ISO7816 physical interfaces, meaning that it is compatible with any Android phone equipped with NFC and all USB Smartcard readers.</p>
-<p>The most obvious case for integration of Keycard is crypto wallets (ETH, BTC, etc), however it can be used in other systems where a BIP-32 key tree is used and/or you perform authentication/identification.</p>
-<p>To further simplify integration, we have developed a Java-based API which can be used on both desktop and Android systems. On the desktop it uses the javax.smartcardio to interface with the card, which is compatible with most USB readers. On Android it uses the on-board NFC reader. If you develop in Java or any other language available, this is the easiest way to use the Keycard. </p>
-<p><a href="sdk_installation.html">Read the SDK documentation</a></p>
-<p>If you use a different language, please first refer to the <a href="sdk_installation.html">Java SDK</a> documentation for a high level overview of how to perform different tasks with the Keycard. Then, please check the <a href="apdu.html">APDU protocol documentation</a> out for the low-level details.</p>
-<h2 id="Versioning" class="article-heading"><a href="#Versioning" class="headerlink" title="Versioning"></a>Versioning<a class="article-anchor" href="#Versioning" aria-hidden="true"></a></h2><p>The current version of the applet is 2.0. This documentation applies to said version. <a href="https://semver.org" target="_blank" rel="noopener">Semantic versioning</a> is used throughout the project, with the omission of the patch number for the applet, but not the SDK and related tools. The version of all components of the Keycard project are tied to the applet version.</p>
+                <h1 id="Exporting-public-or-EIP-1581-compliant-keys" class="article-heading"><a href="#Exporting-public-or-EIP-1581-compliant-keys" class="headerlink" title="Exporting (public or EIP-1581 compliant) keys"></a>Exporting (public or EIP-1581 compliant) keys<a class="article-anchor" href="#Exporting-public-or-EIP-1581-compliant-keys" aria-hidden="true"></a></h1><p>Sorry for the long title, but let’s make it immediately clear: the keys used to sign transactions never leave the card and cannot be exported. You can however export any public key as well as the private key of keypaths defined in the <a href="https://eips.ethereum.org/EIPS/eip-1581" target="_blank" rel="noopener">EIP-1581 specifications</a>. Those keys, by design, are not to be used for transactions but are instead usable for operations with lower security concerns where caching or storing the key outside the card might be beneficial from an UX point of view. Of course, exporting a key always requires user authentication.</p>
+<h2 id="Exporting-the-current-key" class="article-heading"><a href="#Exporting-the-current-key" class="headerlink" title="Exporting the current key"></a>Exporting the current key<a class="article-anchor" href="#Exporting-the-current-key" aria-hidden="true"></a></h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Exports the current public key. This is allowed for any key path</span></span><br><span class="line">BIP32KeyPair publicKey = BIP32KeyPair.fromTLV(cmdSet.exportCurrentKey(<span class="keyword">true</span>).checkOK().getData());</span><br><span class="line"></span><br><span class="line"><span class="comment">// Exports the entire key pair. This is only allowed for key path following the EIP-1581 definition</span></span><br><span class="line">BIP32KeyPair keypair = BIP32KeyPair.fromTLV(cmdSet.exportCurrentKey(<span class="keyword">false</span>).checkOK().getData());</span><br></pre></td></tr></table></figure>
+<h2 id="Derive-amp-export" class="article-heading"><a href="#Derive-amp-export" class="headerlink" title="Derive &amp; export"></a>Derive &amp; export<a class="article-anchor" href="#Derive-amp-export" aria-hidden="true"></a></h2><p>The export command is very powerful, since it allows you to derive &amp; export a key in one step. You have the option to make the derived and exported key active or leave the active key untouched. You can also decide whether to export only the public key or the entire keypair (following the rules defined above).</p>
+<p>A very convenient use case is deriving an account key and retrieving the public key in one step. This is faster than doing it with two commands (derive key and export public), because every command processed has some overhead. Example</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// The first parameter is the keypath, the second tells whether that you want to make the derived &amp; exported key active</span></span><br><span class="line"><span class="comment">// and the third tells that you only want the public key to be exported.</span></span><br><span class="line">BIP32KeyPair publicKey = BIP32KeyPair.fromTLV(cmdSet.exportKey(<span class="string">"m/44'/0'/0'/0/0"</span>, <span class="keyword">true</span>, <span class="keyword">true</span>).checkOK().getData());</span><br><span class="line"></span><br><span class="line"><span class="comment">// The line above is equivalent to</span></span><br><span class="line"><span class="comment">// cmdSet.deriveKey("m/44'/0'/0'/0/0").checkOK();</span></span><br><span class="line"><span class="comment">// BIP32KeyPair publicKey = BIP32KeyPair.fromTLV(cmdSet.exportCurrentKey(true).checkOK().getData());</span></span><br></pre></td></tr></table></figure>
+<p>Another use case, is to export keys defined by EIP-1581 without changing the current active key, since you won’t be signing with the exported key using the card</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Let's assume the current active path is "m/44'/0'/0'/0/0"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// The first parameter is the key path, the second tells that you do not want to make it current and the third that you</span></span><br><span class="line"><span class="comment">// want the entire keypair, not only the public key</span></span><br><span class="line">BIP32KeyPair keypair = BIP32KeyPair.fromTLV(cmdSet.exportKey(<span class="string">"m/43'/60'/1581'/0'/0"</span>, <span class="keyword">false</span>, <span class="keyword">false</span>).checkOK().getData());</span><br><span class="line"></span><br><span class="line"><span class="comment">// At this point, the current active path would still be "m/44'/0'/0'/0/0"</span></span><br></pre></td></tr></table></figure>
 
               </div>
               <footer class="article-footer">
-                <time class="article-footer-updated" datetime="2019-01-24T11:38:24.277Z" itemprop="dateModified">Last updated: 2019-01-24</time>
-                <a href="applet_installation.html" class="article-footer-next" title="Preparing the card"><span>Next</span><i class="fa fa-chevron-right"></i></a>
+                <time class="article-footer-updated" datetime="2019-01-24T13:06:07.415Z" itemprop="dateModified">Last updated: 2019-01-24</time>
+                <a href="sdk_derivation_sign.html" class="article-footer-prev" title="Derivation & signing"><i class="fa fa-chevron-left"></i><span>Prev</span></a><a href="sdk_duplication.html" class="article-footer-next" title="Card duplication"><span>Next</span><i class="fa fa-chevron-right"></i></a>
               </footer>
             </div>
           </div>

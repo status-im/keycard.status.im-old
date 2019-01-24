@@ -2,15 +2,15 @@
 <html lang="en">
 <head prefix="og: http://ogp.me/ns#"><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
-  <title>Overview | Keycard</title>
+  <title>Preparing the card | Keycard</title>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://status-im.github.io/keycard.status.im/api/index.html">
+  <link rel="canonical" href="https://status-im.github.io/keycard.status.im/api/applet_installation.html">
   <!-- Alternative links -->
   
     
-      <link rel="alternative" hreflang="en" href="https://status-im.github.io/keycard.status.im/api/index.html">
+      <link rel="alternative" hreflang="en" href="https://status-im.github.io/keycard.status.im/api/applet_installation.html">
     
   
   <!-- Icon -->
@@ -226,8 +226,8 @@
 </div>
 <div class="page-intro wrapper">
   <header class="article-header">
-    <h1 class="article-title" itemprop="name">Overview</h1>
-    <a href="https://github.com/status-im/incubate.status.im/edit/develop/source/api/index.md" class="article-edit-link" title="Improve this doc">Edit on Github</a>
+    <h1 class="article-title" itemprop="name">Preparing the card</h1>
+    <a href="https://github.com/status-im/incubate.status.im/edit/develop/source/api/applet_installation.md" class="article-edit-link" title="Improve this doc">Edit on Github</a>
   </header>
 </div>
 <div id="content-wrap">
@@ -235,7 +235,7 @@
     <div id="content-inner">
     <aside id="sidebar" role="navigation">
   <div class="inner">
-    <strong class="sidebar-title">Getting Started</strong><a href="index.html" class="sidebar-link current">Overview</a><a href="applet_installation.html" class="sidebar-link">Preparing the card</a><strong class="sidebar-title">Java SDK</strong><a href="sdk_installation.html" class="sidebar-link">Installation</a><a href="sdk_connection.html" class="sidebar-link">Connecting to the card</a><a href="sdk_preparation.html" class="sidebar-link">Working with the applet</a><a href="sdk_securechannel.html" class="sidebar-link">Secure Channel</a><a href="sdk_authentication.html" class="sidebar-link">User authentication</a><a href="sdk_create_wallet.html" class="sidebar-link">Wallet creation</a><a href="sdk_derivation_sign.html" class="sidebar-link">Derivation & signing</a><a href="sdk_export.html" class="sidebar-link">Exporting keys</a><a href="sdk_duplication.html" class="sidebar-link">Card duplication</a><strong class="sidebar-title">APDU Protocol</strong><a href="apdu.html" class="sidebar-link">APDU Protocol</a>
+    <strong class="sidebar-title">Getting Started</strong><a href="index.html" class="sidebar-link">Overview</a><a href="applet_installation.html" class="sidebar-link current">Preparing the card</a><strong class="sidebar-title">Java SDK</strong><a href="sdk_installation.html" class="sidebar-link">Installation</a><a href="sdk_connection.html" class="sidebar-link">Connecting to the card</a><a href="sdk_preparation.html" class="sidebar-link">Working with the applet</a><a href="sdk_securechannel.html" class="sidebar-link">Secure Channel</a><a href="sdk_authentication.html" class="sidebar-link">User authentication</a><a href="sdk_create_wallet.html" class="sidebar-link">Wallet creation</a><a href="sdk_derivation_sign.html" class="sidebar-link">Derivation & signing</a><a href="sdk_export.html" class="sidebar-link">Exporting keys</a><a href="sdk_duplication.html" class="sidebar-link">Card duplication</a><strong class="sidebar-title">APDU Protocol</strong><a href="apdu.html" class="sidebar-link">APDU Protocol</a>
   </div>
 </aside>
       <article class="article-container" itemscope="" itemtype="http://schema.org/Article">
@@ -243,18 +243,38 @@
           <div class="article">
             <div class="inner">
               <div class="article-content" itemprop="articleBody">
-                <h1 id="Overview" class="article-heading"><a href="#Overview" class="headerlink" title="Overview"></a>Overview<a class="article-anchor" href="#Overview" aria-hidden="true"></a></h1><p>Keycard provides to developer an hardware implementation of a <a href="https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki" target="_blank" rel="noopener">BIP-32</a> HD wallet. This means it supports key generation, derivation and signing. It also allows exporting keys defined in the context of <a href="https://eips.ethereum.org/EIPS/eip-1581" target="_blank" rel="noopener">EIP-1581</a>.</p>
-<p>Communication with the Keycard happens through a simple APDU interface, together with a Secure Channel guaranteeing confidentiality, authentication and integrity of all commands. It supports both NFC and ISO7816 physical interfaces, meaning that it is compatible with any Android phone equipped with NFC and all USB Smartcard readers.</p>
-<p>The most obvious case for integration of Keycard is crypto wallets (ETH, BTC, etc), however it can be used in other systems where a BIP-32 key tree is used and/or you perform authentication/identification.</p>
-<p>To further simplify integration, we have developed a Java-based API which can be used on both desktop and Android systems. On the desktop it uses the javax.smartcardio to interface with the card, which is compatible with most USB readers. On Android it uses the on-board NFC reader. If you develop in Java or any other language available, this is the easiest way to use the Keycard. </p>
-<p><a href="sdk_installation.html">Read the SDK documentation</a></p>
-<p>If you use a different language, please first refer to the <a href="sdk_installation.html">Java SDK</a> documentation for a high level overview of how to perform different tasks with the Keycard. Then, please check the <a href="apdu.html">APDU protocol documentation</a> out for the low-level details.</p>
-<h2 id="Versioning" class="article-heading"><a href="#Versioning" class="headerlink" title="Versioning"></a>Versioning<a class="article-anchor" href="#Versioning" aria-hidden="true"></a></h2><p>The current version of the applet is 2.0. This documentation applies to said version. <a href="https://semver.org" target="_blank" rel="noopener">Semantic versioning</a> is used throughout the project, with the omission of the patch number for the applet, but not the SDK and related tools. The version of all components of the Keycard project are tied to the applet version.</p>
+                <h1 id="Preparing-the-card" class="article-heading"><a href="#Preparing-the-card" class="headerlink" title="Preparing the card"></a>Preparing the card<a class="article-anchor" href="#Preparing-the-card" aria-hidden="true"></a></h1><p>If you got a Keycard and you are integrating it in your project, you will most likely want to reset the applet status completely for testing purposes. This is done by reinstalling the applet, which can be accomplished using the <a href="https://github.com/status-im/keycard-installer-android/releases" target="_blank" rel="noopener">Keycard Installer for Android</a>.</p>
+<p>Upgrading the applet is also accomplished with the installer and also involves deleting the current version. The latest version of the installer always ships with the latest version of the applet.</p>
+<p>The installer has a simple interface, when you open it, you see a white screen and a few buttons. Select the operation you want to perform, then bring the card near to the NFC reader of your phone and wait until the operation is complete. Make sure NFC is turned on.</p>
+<p>There are two operations used to install the applet. One is “Install Secure”, which installs the applet without sending the INIT command, so the installed applet is not initialized. The other option is “Install with test PIN/PUK”. This installs the applet and sets PIN to “000000”, PUK to “123456789012” and Pairing Password to “KeycardTest”. This second option is useful if you want to quickly test interaction without having to initialize the card in your application.</p>
+<h2 id="Card-requirements" class="article-heading"><a href="#Card-requirements" class="headerlink" title="Card requirements"></a>Card requirements<a class="article-anchor" href="#Card-requirements" aria-hidden="true"></a></h2><p>The Keycard applet can be installed not only on our cards, but on any card which meets the following requirements:</p>
+<ul>
+<li>JavaCard 3.0.4 or later.</li>
+<li>Cipher.ALG_AES_BLOCK_128_CBC_NOPAD</li>
+<li>Cipher.ALG_AES_CBC_ISO9797_M2</li>
+<li>KeyAgreement.ALG_EC_SVDP_DH_PLAIN</li>
+<li>KeyAgreement.ALG_EC_SVDP_DH_PLAIN_XY (defined in JavaCard 3.0.5 but available on some 3.0.4 cards nonetheless)</li>
+<li>KeyPair.ALG_EC_FP (generation of 256-bit keys)</li>
+<li>MessageDigest.ALG_SHA_256</li>
+<li>MessageDigest.ALG_SHA_512</li>
+<li>RandomData.ALG_SECURE_RANDOM</li>
+<li>Signature.ALG_AES_MAC_128_NOPAD</li>
+<li>Signature.ALG_ECDSA_SHA_256</li>
+</ul>
+<p>Best performance is achieved if the card supports:</p>
+<ul>
+<li>Signature.ALG_HMAC_SHA_512</li>
+</ul>
+<p>Keycard requires about 10kb of NVM. All allocations, instantiations and checks are performed at installation time, so if installation succeeds, the applet will work fine.</p>
+<h2 id="Resources" class="article-heading"><a href="#Resources" class="headerlink" title="Resources"></a>Resources<a class="article-anchor" href="#Resources" aria-hidden="true"></a></h2><ul>
+<li><a href="https://github.com/status-im/keycard-installer-android/releases" target="_blank" rel="noopener">Keycard Installer for Android</a></li>
+<li><a href="https://github.com/status-im/keycard-installer-android/blob/master/app/src/main/assets/keycard.cap?raw=true" target="_blank" rel="noopener">Latest Keycard Applet</a></li>
+</ul>
 
               </div>
               <footer class="article-footer">
-                <time class="article-footer-updated" datetime="2019-01-24T11:38:24.277Z" itemprop="dateModified">Last updated: 2019-01-24</time>
-                <a href="applet_installation.html" class="article-footer-next" title="Preparing the card"><span>Next</span><i class="fa fa-chevron-right"></i></a>
+                <time class="article-footer-updated" datetime="2019-01-24T12:15:26.102Z" itemprop="dateModified">Last updated: 2019-01-24</time>
+                <a href="index.html" class="article-footer-prev" title="Overview"><i class="fa fa-chevron-left"></i><span>Prev</span></a><a href="sdk_installation.html" class="article-footer-next" title="Installation"><span>Next</span><i class="fa fa-chevron-right"></i></a>
               </footer>
             </div>
           </div>

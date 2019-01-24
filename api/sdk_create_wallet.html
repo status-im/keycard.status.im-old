@@ -2,15 +2,15 @@
 <html lang="en">
 <head prefix="og: http://ogp.me/ns#"><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
-  <title>Overview | Keycard</title>
+  <title>Wallet creation | Keycard</title>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://status-im.github.io/keycard.status.im/api/index.html">
+  <link rel="canonical" href="https://status-im.github.io/keycard.status.im/api/sdk_create_wallet.html">
   <!-- Alternative links -->
   
     
-      <link rel="alternative" hreflang="en" href="https://status-im.github.io/keycard.status.im/api/index.html">
+      <link rel="alternative" hreflang="en" href="https://status-im.github.io/keycard.status.im/api/sdk_create_wallet.html">
     
   
   <!-- Icon -->
@@ -226,8 +226,8 @@
 </div>
 <div class="page-intro wrapper">
   <header class="article-header">
-    <h1 class="article-title" itemprop="name">Overview</h1>
-    <a href="https://github.com/status-im/incubate.status.im/edit/develop/source/api/index.md" class="article-edit-link" title="Improve this doc">Edit on Github</a>
+    <h1 class="article-title" itemprop="name">Wallet creation</h1>
+    <a href="https://github.com/status-im/incubate.status.im/edit/develop/source/api/sdk_create_wallet.md" class="article-edit-link" title="Improve this doc">Edit on Github</a>
   </header>
 </div>
 <div id="content-wrap">
@@ -235,7 +235,7 @@
     <div id="content-inner">
     <aside id="sidebar" role="navigation">
   <div class="inner">
-    <strong class="sidebar-title">Getting Started</strong><a href="index.html" class="sidebar-link current">Overview</a><a href="applet_installation.html" class="sidebar-link">Preparing the card</a><strong class="sidebar-title">Java SDK</strong><a href="sdk_installation.html" class="sidebar-link">Installation</a><a href="sdk_connection.html" class="sidebar-link">Connecting to the card</a><a href="sdk_preparation.html" class="sidebar-link">Working with the applet</a><a href="sdk_securechannel.html" class="sidebar-link">Secure Channel</a><a href="sdk_authentication.html" class="sidebar-link">User authentication</a><a href="sdk_create_wallet.html" class="sidebar-link">Wallet creation</a><a href="sdk_derivation_sign.html" class="sidebar-link">Derivation & signing</a><a href="sdk_export.html" class="sidebar-link">Exporting keys</a><a href="sdk_duplication.html" class="sidebar-link">Card duplication</a><strong class="sidebar-title">APDU Protocol</strong><a href="apdu.html" class="sidebar-link">APDU Protocol</a>
+    <strong class="sidebar-title">Getting Started</strong><a href="index.html" class="sidebar-link">Overview</a><a href="applet_installation.html" class="sidebar-link">Preparing the card</a><strong class="sidebar-title">Java SDK</strong><a href="sdk_installation.html" class="sidebar-link">Installation</a><a href="sdk_connection.html" class="sidebar-link">Connecting to the card</a><a href="sdk_preparation.html" class="sidebar-link">Working with the applet</a><a href="sdk_securechannel.html" class="sidebar-link">Secure Channel</a><a href="sdk_authentication.html" class="sidebar-link">User authentication</a><a href="sdk_create_wallet.html" class="sidebar-link current">Wallet creation</a><a href="sdk_derivation_sign.html" class="sidebar-link">Derivation & signing</a><a href="sdk_export.html" class="sidebar-link">Exporting keys</a><a href="sdk_duplication.html" class="sidebar-link">Card duplication</a><strong class="sidebar-title">APDU Protocol</strong><a href="apdu.html" class="sidebar-link">APDU Protocol</a>
   </div>
 </aside>
       <article class="article-container" itemscope="" itemtype="http://schema.org/Article">
@@ -243,18 +243,21 @@
           <div class="article">
             <div class="inner">
               <div class="article-content" itemprop="articleBody">
-                <h1 id="Overview" class="article-heading"><a href="#Overview" class="headerlink" title="Overview"></a>Overview<a class="article-anchor" href="#Overview" aria-hidden="true"></a></h1><p>Keycard provides to developer an hardware implementation of a <a href="https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki" target="_blank" rel="noopener">BIP-32</a> HD wallet. This means it supports key generation, derivation and signing. It also allows exporting keys defined in the context of <a href="https://eips.ethereum.org/EIPS/eip-1581" target="_blank" rel="noopener">EIP-1581</a>.</p>
-<p>Communication with the Keycard happens through a simple APDU interface, together with a Secure Channel guaranteeing confidentiality, authentication and integrity of all commands. It supports both NFC and ISO7816 physical interfaces, meaning that it is compatible with any Android phone equipped with NFC and all USB Smartcard readers.</p>
-<p>The most obvious case for integration of Keycard is crypto wallets (ETH, BTC, etc), however it can be used in other systems where a BIP-32 key tree is used and/or you perform authentication/identification.</p>
-<p>To further simplify integration, we have developed a Java-based API which can be used on both desktop and Android systems. On the desktop it uses the javax.smartcardio to interface with the card, which is compatible with most USB readers. On Android it uses the on-board NFC reader. If you develop in Java or any other language available, this is the easiest way to use the Keycard. </p>
-<p><a href="sdk_installation.html">Read the SDK documentation</a></p>
-<p>If you use a different language, please first refer to the <a href="sdk_installation.html">Java SDK</a> documentation for a high level overview of how to perform different tasks with the Keycard. Then, please check the <a href="apdu.html">APDU protocol documentation</a> out for the low-level details.</p>
-<h2 id="Versioning" class="article-heading"><a href="#Versioning" class="headerlink" title="Versioning"></a>Versioning<a class="article-anchor" href="#Versioning" aria-hidden="true"></a></h2><p>The current version of the applet is 2.0. This documentation applies to said version. <a href="https://semver.org" target="_blank" rel="noopener">Semantic versioning</a> is used throughout the project, with the omission of the patch number for the applet, but not the SDK and related tools. The version of all components of the Keycard project are tied to the applet version.</p>
+                <h1 id="Wallet-creation" class="article-heading"><a href="#Wallet-creation" class="headerlink" title="Wallet creation"></a>Wallet creation<a class="article-anchor" href="#Wallet-creation" aria-hidden="true"></a></h1><p>To actually use the Keycard, it needs to have a wallet. This can be achieved in several different ways, which one you choose depends on your usage scenario. Creating a wallet requires user authentication and is possible even if a wallet already exists on the card (the new wallet replaces the old one). Use the <code>ApplicationInfo.hasMasterKey()</code> method to determine if the card already has a wallet or not. Note that the response of the <code>KeycardCommandSet.loadKey</code> method contains the key UID of the created wallet. This UID can be stored to keep track of this specific wallet in the client. The UID is tied to the key itself (is derived from the public key) so it will change if the wallet on card is replaced. The key UID is also part of the response of the applet selection command, so the wallet can be identified immediately upon selection.</p>
+<h2 id="Creating-a-BIP39-mnemonic-phrase" class="article-heading"><a href="#Creating-a-BIP39-mnemonic-phrase" class="headerlink" title="Creating a BIP39 mnemonic phrase"></a>Creating a BIP39 mnemonic phrase<a class="article-anchor" href="#Creating-a-BIP39-mnemonic-phrase" aria-hidden="true"></a></h2><p>This method is great for interoperability with other wallets. The card can assist in creating the mnemonic phrase, since it features a TRNG. Generating the mnemonic itself does not require user authentication (since it does not modify the card state), but loading the key derived from it does. Example of the entire procedure is below</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Generates a Mnemonic object from the card. You can choose between generating 12, 15, 18, 21 or 24 words</span></span><br><span class="line">Mnemonic mnemonic = <span class="keyword">new</span> Mnemonic(cmdSet.generateMnemonic(KeycardCommandSet.GENERATE_MNEMONIC_12_WORDS).checkOK().getData());</span><br><span class="line"></span><br><span class="line"><span class="comment">// We need to set a wordlist if we plan using this object to derive the binary seed. We can set our own list or we can</span></span><br><span class="line"><span class="comment">// fatch the official BIP39 english word list as shown below.</span></span><br><span class="line">mnemonic.fetchBIP39EnglishWordlist();</span><br><span class="line"></span><br><span class="line"><span class="comment">// If we did not verify the PIN before, we can do it now</span></span><br><span class="line">cmdSet.verifyPIN(pin).checkOK();</span><br><span class="line"></span><br><span class="line"><span class="comment">// Loads the key generated from the mnemonic phrase.</span></span><br><span class="line">cmdSet.loadKey(mnemonic.toBIP32KeyPair()).checkOK();</span><br></pre></td></tr></table></figure>
+<h2 id="Importing-a-wallet-from-BIP39-mnemonic-phrase" class="article-heading"><a href="#Importing-a-wallet-from-BIP39-mnemonic-phrase" class="headerlink" title="Importing a wallet from BIP39 mnemonic phrase"></a>Importing a wallet from BIP39 mnemonic phrase<a class="article-anchor" href="#Importing-a-wallet-from-BIP39-mnemonic-phrase" aria-hidden="true"></a></h2><p>Importing an existing passphrase requires only the loading step.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// The passphrase is a string with space separated words. The password can be any non-null string, usually is empty.</span></span><br><span class="line">cmdSet.loadKey(Mnemonic.toBinarySeed(passphrase, password)).checkOK();</span><br></pre></td></tr></table></figure>
+<h2 id="Generating-keys-on-card" class="article-heading"><a href="#Generating-keys-on-card" class="headerlink" title="Generating keys on-card"></a>Generating keys on-card<a class="article-anchor" href="#Generating-keys-on-card" aria-hidden="true"></a></h2><p>This is the simplest and safest method, because the generated wallet never leaves the card and there is no “paper backup” to keep secure. It is possible to create secure duplicates of the wallet on other Keycards, with a mechanism described in later chapters. Using the SDK, you simply do</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">cmdSet.generateKey().checkOK();</span><br></pre></td></tr></table></figure>
+<h2 id="Importing-an-EC-keypair" class="article-heading"><a href="#Importing-an-EC-keypair" class="headerlink" title="Importing an EC keypair"></a>Importing an EC keypair<a class="article-anchor" href="#Importing-an-EC-keypair" aria-hidden="true"></a></h2><p>You can import on the keycard any EC keypair on the SECP256k1 curve, with or without the BIP32 extension. If your import a key without the BIP32 extension, then key derivation will not work, but you will still be able to use the Keycard for signing transactions using the imported key. This scenario can be useful if you are migrating from a wallet not using BIP39 passphrases or for wallets following some custom generation rules. It is however generally preferable to use one of the methods presented above.</p>
+<p>An example of key import is</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// privKey is the S component of the key, as a 32-byte long byte array</span></span><br><span class="line"><span class="comment">// chainCode is the extension to the keypair defined by BIP32, this is another 32-byte long byte array. Can be null, in</span></span><br><span class="line"><span class="comment">// which case the created wallet won't be BIP32 compatible.</span></span><br><span class="line"><span class="comment">// pubKey is the DER encoded, uncompressed public key. Can be null, in which case it is automatically calculated from</span></span><br><span class="line"><span class="comment">// the private key.</span></span><br><span class="line">BIP32KeyPair keypair = <span class="keyword">new</span> BIP32KeyPair(privKey, chainCode, pubKey);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Loads the keypair</span></span><br><span class="line">cmdSet.loadKey(keypair).checkOK();</span><br></pre></td></tr></table></figure>
 
               </div>
               <footer class="article-footer">
-                <time class="article-footer-updated" datetime="2019-01-24T11:38:24.277Z" itemprop="dateModified">Last updated: 2019-01-24</time>
-                <a href="applet_installation.html" class="article-footer-next" title="Preparing the card"><span>Next</span><i class="fa fa-chevron-right"></i></a>
+                <time class="article-footer-updated" datetime="2019-01-24T13:07:37.086Z" itemprop="dateModified">Last updated: 2019-01-24</time>
+                <a href="sdk_authentication.html" class="article-footer-prev" title="User authentication"><i class="fa fa-chevron-left"></i><span>Prev</span></a><a href="sdk_derivation_sign.html" class="article-footer-next" title="Derivation & signing"><span>Next</span><i class="fa fa-chevron-right"></i></a>
               </footer>
             </div>
           </div>

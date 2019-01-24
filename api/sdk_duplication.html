@@ -2,15 +2,15 @@
 <html lang="en">
 <head prefix="og: http://ogp.me/ns#"><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
-  <title>Overview | Keycard</title>
+  <title>Card duplication | Keycard</title>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://status-im.github.io/keycard.status.im/api/index.html">
+  <link rel="canonical" href="https://status-im.github.io/keycard.status.im/api/sdk_duplication.html">
   <!-- Alternative links -->
   
     
-      <link rel="alternative" hreflang="en" href="https://status-im.github.io/keycard.status.im/api/index.html">
+      <link rel="alternative" hreflang="en" href="https://status-im.github.io/keycard.status.im/api/sdk_duplication.html">
     
   
   <!-- Icon -->
@@ -226,8 +226,8 @@
 </div>
 <div class="page-intro wrapper">
   <header class="article-header">
-    <h1 class="article-title" itemprop="name">Overview</h1>
-    <a href="https://github.com/status-im/incubate.status.im/edit/develop/source/api/index.md" class="article-edit-link" title="Improve this doc">Edit on Github</a>
+    <h1 class="article-title" itemprop="name">Card duplication</h1>
+    <a href="https://github.com/status-im/incubate.status.im/edit/develop/source/api/sdk_duplication.md" class="article-edit-link" title="Improve this doc">Edit on Github</a>
   </header>
 </div>
 <div id="content-wrap">
@@ -235,7 +235,7 @@
     <div id="content-inner">
     <aside id="sidebar" role="navigation">
   <div class="inner">
-    <strong class="sidebar-title">Getting Started</strong><a href="index.html" class="sidebar-link current">Overview</a><a href="applet_installation.html" class="sidebar-link">Preparing the card</a><strong class="sidebar-title">Java SDK</strong><a href="sdk_installation.html" class="sidebar-link">Installation</a><a href="sdk_connection.html" class="sidebar-link">Connecting to the card</a><a href="sdk_preparation.html" class="sidebar-link">Working with the applet</a><a href="sdk_securechannel.html" class="sidebar-link">Secure Channel</a><a href="sdk_authentication.html" class="sidebar-link">User authentication</a><a href="sdk_create_wallet.html" class="sidebar-link">Wallet creation</a><a href="sdk_derivation_sign.html" class="sidebar-link">Derivation & signing</a><a href="sdk_export.html" class="sidebar-link">Exporting keys</a><a href="sdk_duplication.html" class="sidebar-link">Card duplication</a><strong class="sidebar-title">APDU Protocol</strong><a href="apdu.html" class="sidebar-link">APDU Protocol</a>
+    <strong class="sidebar-title">Getting Started</strong><a href="index.html" class="sidebar-link">Overview</a><a href="applet_installation.html" class="sidebar-link">Preparing the card</a><strong class="sidebar-title">Java SDK</strong><a href="sdk_installation.html" class="sidebar-link">Installation</a><a href="sdk_connection.html" class="sidebar-link">Connecting to the card</a><a href="sdk_preparation.html" class="sidebar-link">Working with the applet</a><a href="sdk_securechannel.html" class="sidebar-link">Secure Channel</a><a href="sdk_authentication.html" class="sidebar-link">User authentication</a><a href="sdk_create_wallet.html" class="sidebar-link">Wallet creation</a><a href="sdk_derivation_sign.html" class="sidebar-link">Derivation & signing</a><a href="sdk_export.html" class="sidebar-link">Exporting keys</a><a href="sdk_duplication.html" class="sidebar-link current">Card duplication</a><strong class="sidebar-title">APDU Protocol</strong><a href="apdu.html" class="sidebar-link">APDU Protocol</a>
   </div>
 </aside>
       <article class="article-container" itemscope="" itemtype="http://schema.org/Article">
@@ -243,18 +243,42 @@
           <div class="article">
             <div class="inner">
               <div class="article-content" itemprop="articleBody">
-                <h1 id="Overview" class="article-heading"><a href="#Overview" class="headerlink" title="Overview"></a>Overview<a class="article-anchor" href="#Overview" aria-hidden="true"></a></h1><p>Keycard provides to developer an hardware implementation of a <a href="https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki" target="_blank" rel="noopener">BIP-32</a> HD wallet. This means it supports key generation, derivation and signing. It also allows exporting keys defined in the context of <a href="https://eips.ethereum.org/EIPS/eip-1581" target="_blank" rel="noopener">EIP-1581</a>.</p>
-<p>Communication with the Keycard happens through a simple APDU interface, together with a Secure Channel guaranteeing confidentiality, authentication and integrity of all commands. It supports both NFC and ISO7816 physical interfaces, meaning that it is compatible with any Android phone equipped with NFC and all USB Smartcard readers.</p>
-<p>The most obvious case for integration of Keycard is crypto wallets (ETH, BTC, etc), however it can be used in other systems where a BIP-32 key tree is used and/or you perform authentication/identification.</p>
-<p>To further simplify integration, we have developed a Java-based API which can be used on both desktop and Android systems. On the desktop it uses the javax.smartcardio to interface with the card, which is compatible with most USB readers. On Android it uses the on-board NFC reader. If you develop in Java or any other language available, this is the easiest way to use the Keycard. </p>
-<p><a href="sdk_installation.html">Read the SDK documentation</a></p>
-<p>If you use a different language, please first refer to the <a href="sdk_installation.html">Java SDK</a> documentation for a high level overview of how to perform different tasks with the Keycard. Then, please check the <a href="apdu.html">APDU protocol documentation</a> out for the low-level details.</p>
-<h2 id="Versioning" class="article-heading"><a href="#Versioning" class="headerlink" title="Versioning"></a>Versioning<a class="article-anchor" href="#Versioning" aria-hidden="true"></a></h2><p>The current version of the applet is 2.0. This documentation applies to said version. <a href="https://semver.org" target="_blank" rel="noopener">Semantic versioning</a> is used throughout the project, with the omission of the patch number for the applet, but not the SDK and related tools. The version of all components of the Keycard project are tied to the applet version.</p>
+                <h1 id="Card-duplication" class="article-heading"><a href="#Card-duplication" class="headerlink" title="Card duplication"></a>Card duplication<a class="article-anchor" href="#Card-duplication" aria-hidden="true"></a></h1><p>Card duplication is especially relevant when the keys have been generated on-card, without using BIP39 mnemonic (or when this has been destroyed). To make duplication secure the client must not possess the (full) encryption key. For this reason, a scheme where multiple clients are used and none of them has the full key has been devised. From the user point of view, the duplication process goes like this</p>
+<ol>
+<li>Take the card to be duplicated (source) and one or more cards to duplicate to (target)</li>
+<li>On one of the user’s clients initiate the duplication. This involves entering the PIN of each of the involved cards</li>
+<li>Tap all cards to one or more additional clients (the amount must be defined before, the order is irrelevant). These clients do not need to be paired or be trusted, so the user can borrow a friend’s phone without compromising security. This step does not require entering a PIN</li>
+<li>On one of the user’s clients, usually the same which initiated the duplication (must be paired, trusted) finalize the duplication by first tapping the source card and then all target cards, again inserting the PIN for each.</li>
+</ol>
+<p>At the end of procedure, each card will have the same master key, but PIN, PUK and pairing key remain unchanged and are independent from each other. A client could propose changing them to be all the same if desired or do this automatically. All cards are fully functional, so at this point there isn’t any difference between the source card and the targets.</p>
+<p>Since the cards are still protected by the PIN, these can be stored remotely in moderately trusted places to recover from lost or destroyed cards. The duplication has been performed securely since no client ever had the full encryption key and no authentication credentials has been inserted on untrusted clients. For flexibility reason, an arbitrary number of clients can be used. Using a single client could be convenient from an UX point of view, but relies on said client not being compromised. Using 2 or 3 clients greatly increases security. More than 3 clients is probably an overkill.</p>
+<p>From an implementation point of view, we have two different roles a client can take</p>
+<ol>
+<li>The trusted client, starting and performing the duplication</li>
+<li>The (possibly) untrusted clients, only adding entropy to the encryption key</li>
+</ol>
+<p>Both can be implemented by using the <code>CardDuplicator</code> class. On each client, the same instance of the <code>CardDuplicator</code> class must be used for the entire duplication process, otherwise duplication will fail.</p>
+<p>The trusted client must also provide an implementation of <code>DuplicatorCallback</code>. This is needed to retrieve the Pairing and PIN for each card. Example below</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyDuplicatorCB</span> <span class="keyword">implements</span> <span class="title">DuplicatorCallback</span> </span>&#123;</span><br><span class="line">  <span class="function">Pairing <span class="title">getPairing</span><span class="params">(ApplicationInfo applicationInfo)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// The Instance UID is the one to use when storing/retrieving pairings</span></span><br><span class="line">    <span class="keyword">byte</span>[] uid = applicationInfo.getInstanceUID();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Using the UID try to retrieve the pairing. The method getSavedPairing is an example and is not part of the SDK,</span></span><br><span class="line">    <span class="comment">// you are responsible of how you store and retrieve pairing data in your app</span></span><br><span class="line">    Pairing pairing = getSavedPairing(uid);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Optionally, you could prompt the user and make a new pairing if none if given, but this is an UX decision in</span></span><br><span class="line">    <span class="comment">// your application.</span></span><br><span class="line">    <span class="keyword">if</span> (pairing == <span class="keyword">null</span>) &#123;</span><br><span class="line">      pairing = tryToPair();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// possibly null, in this case the operation requiring pairing is aborted</span></span><br><span class="line">    <span class="keyword">return</span> pairing;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function">String <span class="title">getPIN</span><span class="params">(ApplicationInfo applicationInfo, <span class="keyword">int</span> remainingAttempts)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Optionally, you might have a cache of PINs for recently used card, but this should be done carefully as the PIN</span></span><br><span class="line">    <span class="comment">// is sensitive data. You might instead want to just prompt the user each time.</span></span><br><span class="line">    String pin = getCachedPIN(applicationInfo.getInstanceUID());</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (pin == <span class="keyword">null</span>) &#123;</span><br><span class="line">      <span class="comment">// prompt the user to insert the PIN. You can optionally inform them about how many retry attempts are left.</span></span><br><span class="line">      <span class="comment">// For UX reason you could also use the instance UID to show the user an identifiable name, this is again</span></span><br><span class="line">      <span class="comment">// application specific.</span></span><br><span class="line">      pin = promptUser(remainingAttempts);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// This must not be null. PIN verification will be performed by the CardDuplicator itself, do no not perform it here!</span></span><br><span class="line">    <span class="keyword">return</span> pin;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>The next step to do, is instantiating a CardDuplicator.</p>
+<p>For the trusted client</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// The cmdSet is a KeycardCommandSet instance, duplicatorCallback is an object implementing the DuplicatorCallback</span></span><br><span class="line"><span class="comment">// interface</span></span><br><span class="line">cardDuplicator = <span class="keyword">new</span> CardDuplicator(cmdSet, duplicatorCallback);</span><br></pre></td></tr></table></figure>
+<p>For the untrusted clients</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// apduChannel is a CardChannel instance. Alternatively the same constructor as for the trusted client can be used,</span></span><br><span class="line"><span class="comment">// passing null as the second parameter.</span></span><br><span class="line">cardDuplicator = <span class="keyword">new</span> CardDuplicator(apduChannel);</span><br></pre></td></tr></table></figure>
+<p>Once the instance has been created, depending on the role and state the client must perform a specific action every time a new card is presented. The CardDuplicator keeps track of the action performed on any card, so if the user presents the same card twice an <code>IllegalStateException</code> exception is thrown.</p>
+<p>To start duplication on a card, for example, you might do</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Client count is the amount of devices contributing to forming the entire key. This means 1 + the number of clients</span></span><br><span class="line"><span class="comment">// which will be adding entropy (the untrusted clients)</span></span><br><span class="line">cardDuplicator.startDuplication(clientCount);</span><br></pre></td></tr></table></figure>
+<p>On untrusted clients, to add entropy, you do</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">cardDuplicator.addEntropy();</span><br></pre></td></tr></table></figure>
+<p>When the full key has been stored on all cards, you then call the following method on the source card on a trusted client</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">byte</span>[] exportedKey = cardDuplicator.exportKey();</span><br></pre></td></tr></table></figure>
+<p>whereas, from the same client, you invoke on all target cards the following</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// you should then check that the keyUID matches the one of the source card to be sure that the duplication has been</span></span><br><span class="line"><span class="comment">// performed correctly.</span></span><br><span class="line"><span class="keyword">byte</span>[] keyUID = cardDuplicator.importKey(exportedKey);</span><br></pre></td></tr></table></figure>
 
               </div>
               <footer class="article-footer">
-                <time class="article-footer-updated" datetime="2019-01-24T11:38:24.277Z" itemprop="dateModified">Last updated: 2019-01-24</time>
-                <a href="applet_installation.html" class="article-footer-next" title="Preparing the card"><span>Next</span><i class="fa fa-chevron-right"></i></a>
+                <time class="article-footer-updated" datetime="2019-01-24T13:13:01.971Z" itemprop="dateModified">Last updated: 2019-01-24</time>
+                <a href="sdk_export.html" class="article-footer-prev" title="Exporting keys"><i class="fa fa-chevron-left"></i><span>Prev</span></a><a href="apdu.html" class="article-footer-next" title="APDU Protocol"><span>Next</span><i class="fa fa-chevron-right"></i></a>
               </footer>
             </div>
           </div>
