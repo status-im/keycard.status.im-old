@@ -17,5 +17,16 @@ sidebar:
   api:
     API: Keycard API
     getting_started: Getting Started
+    overview: Overview
+    applet_installation: Preparing the card
+    sdk_installation: Installation
+    sdk_connection: Connecting to the card
+    sdk_preparation: Working with the applet
+    sdk_securechannel: Secure Channel
+    sdk_authentication: User authentication
+    sdk_create_wallet: Wallet creation
+    sdk_derivation_sign: Derivation & signing
+    sdk_export: Exporting keys
+    sdk_duplication: Card duplication
     java_sdk: Java SDK
     apdu: APDU Protocol

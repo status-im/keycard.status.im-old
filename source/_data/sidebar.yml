@@ -1,5 +1,16 @@
 api:
-  API:
-    getting_started: index.html
-    java_sdk: java-sdk.html
+  getting_started:
+    overview: index.html
+    applet_installation: applet_installation.html
+  java_sdk:
+    sdk_installation: sdk_installation.html
+    sdk_connection: sdk_connection.html
+    sdk_preparation: sdk_preparation.html
+    sdk_securechannel: sdk_securechannel.html
+    sdk_authentication: sdk_authentication.html
+    sdk_create_wallet: sdk_create_wallet.html
+    sdk_derivation_sign: sdk_derivation_sign.html
+    sdk_export: sdk_export.html
+    sdk_duplication: sdk_duplication.html
+  apdu:
     apdu: apdu.html
