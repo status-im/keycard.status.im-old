@@ -249,6 +249,30 @@
 <p>To further simplify integration, we have developed a Java-based API which can be used on both desktop and Android systems. On the desktop it uses the javax.smartcardio to interface with the card, which is compatible with most USB readers. On Android it uses the on-board NFC reader. If you develop in Java or any other language available, this is the easiest way to use the Keycard. </p>
 <p><a href="java-sdk.html">Read the SDK documentation</a></p>
 <p>If you use a different language, please first refer to the <a href="java-sdk.html">Java SDK</a> documentation for a high level overview of how to perform different tasks with the Keycard. Then, please check the <a href="apdu.html">APDU protocol documentation</a> out for the low-level details.</p>
+<h2 id="Versioning" class="article-heading"><a href="#Versioning" class="headerlink" title="Versioning"></a>Versioning<a class="article-anchor" href="#Versioning" aria-hidden="true"></a></h2><p>The current version of the applet is 2.0. This documentation applies to said version. <a href="https://semver.org" target="_blank" rel="noopener">Semantic versioning</a> is used throughout the project, with the omission of the patch number for the applet, but not the SDK and related tools. The version of all components of the Keycard project are tied to the applet version.</p>
+<h2 id="Installing-reinstalling-and-upgrading" class="article-heading"><a href="#Installing-reinstalling-and-upgrading" class="headerlink" title="Installing, reinstalling and upgrading"></a>Installing, reinstalling and upgrading<a class="article-anchor" href="#Installing-reinstalling-and-upgrading" aria-hidden="true"></a></h2><p>If you got a Keycard and you are integrating it in your project, you will most likely want to reset the applet status completely for testing purposes. This is done by reinstalling the applet, which can be accomplished using the <a href="https://github.com/status-im/keycard-installer-android/releases" target="_blank" rel="noopener">Keycard Installer for Android</a>.</p>
+<p>Upgrading the applet is also accomplished with the installer and also involves deleting the current version. The latest version of the installer always ships with the latest version of the applet.</p>
+<p>The installer has a simple interface, when you open it, you see a white screen and a few buttons. Select the operation you want to perform, then bring the card near to the NFC reader of your phone and wait until the operation is complete. Make sure NFC is turned on.</p>
+<p>There are two operations used to install the applet. One is “Install Secure”, which installs the applet without sending the INIT command, so the installed applet is not initialized. The other option is “Install with test PIN/PUK”. This installs the applet and sets PIN to “000000”, PUK to “123456789012” and Pairing Password to “KeycardTest”. This second option is useful if you want to quickly test interaction without having to initialize the card in your application.</p>
+<h2 id="Card-requirements" class="article-heading"><a href="#Card-requirements" class="headerlink" title="Card requirements"></a>Card requirements<a class="article-anchor" href="#Card-requirements" aria-hidden="true"></a></h2><p>The Keycard applet can be installed not only on our cards, but on any card which meets the following requirements:</p>
+<ul>
+<li>JavaCard 3.0.4 or later.</li>
+<li>Cipher.ALG_AES_BLOCK_128_CBC_NOPAD</li>
+<li>Cipher.ALG_AES_CBC_ISO9797_M2</li>
+<li>KeyAgreement.ALG_EC_SVDP_DH_PLAIN</li>
+<li>KeyAgreement.ALG_EC_SVDP_DH_PLAIN_XY (defined in JavaCard 3.0.5 but available on some 3.0.4 cards nonetheless)</li>
+<li>KeyPair.ALG_EC_FP (generation of 256-bit keys)</li>
+<li>MessageDigest.ALG_SHA_256</li>
+<li>MessageDigest.ALG_SHA_512</li>
+<li>RandomData.ALG_SECURE_RANDOM</li>
+<li>Signature.ALG_AES_MAC_128_NOPAD</li>
+<li>Signature.ALG_ECDSA_SHA_256</li>
+</ul>
+<p>Best performance is achieved if the card supports:</p>
+<ul>
+<li>Signature.ALG_HMAC_SHA_512</li>
+</ul>
+<p>Keycard requires about 10kb of NVM. All allocations, instantiations and checks are performed at installation time, so if installation succeeds, the applet will work fine.</p>
 <h2 id="Resources" class="article-heading"><a href="#Resources" class="headerlink" title="Resources"></a>Resources<a class="article-anchor" href="#Resources" aria-hidden="true"></a></h2><ul>
 <li><a href="https://github.com/status-im/keycard-installer-android/releases" target="_blank" rel="noopener">Keycard Installer for Android</a></li>
 <li><a href="https://github.com/status-im/keycard-installer-android/blob/master/app/src/main/assets/keycard.cap?raw=true" target="_blank" rel="noopener">Latest Keycard Applet</a></li>
@@ -256,7 +280,7 @@
 
               </div>
               <footer class="article-footer">
-                <time class="article-footer-updated" datetime="2019-01-17T10:51:56.171Z" itemprop="dateModified">Last updated: 2019-01-17</time>
+                <time class="article-footer-updated" datetime="2019-01-24T08:54:53.543Z" itemprop="dateModified">Last updated: 2019-01-24</time>
                 <a href="java-sdk.html" class="article-footer-next" title="Java SDK"><span>Next</span><i class="fa fa-chevron-right"></i></a>
               </footer>
             </div>
