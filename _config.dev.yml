@@ -5,8 +5,8 @@ author: Status
 language: en
 timezone: UTC
 
-url: https://status-im.github.io/keycard.status.im/
-root: /keycard.status.im/
+url: https://keycard.status.im/
+root: /
 permalink: news/:year/:month/:day/:title/
 archive_dir: news
 code_dir: downloads/code

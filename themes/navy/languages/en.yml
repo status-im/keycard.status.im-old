@@ -19,6 +19,7 @@ sidebar:
     getting_started: Getting Started
     overview: Overview
     applet_installation: Preparing the card
+    resources: Resources
     sdk_installation: Installation
     sdk_connection: Connecting to the card
     sdk_preparation: Working with the applet

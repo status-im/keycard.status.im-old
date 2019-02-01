@@ -2,6 +2,7 @@ api:
   getting_started:
     overview: index.html
     applet_installation: applet_installation.html
+    resources: resources.html
   java_sdk:
     sdk_installation: sdk_installation.html
     sdk_connection: sdk_connection.html

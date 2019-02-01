@@ -35,7 +35,3 @@ Best performance is achieved if the card supports:
 
 Keycard requires about 10kb of NVM. All allocations, instantiations and checks are performed at installation time, so if installation succeeds, the applet will work fine.
 
-## Resources
-
-* [Keycard Installer for Android](https://github.com/status-im/keycard-installer-android/releases)
-* [Latest Keycard Applet](https://github.com/status-im/keycard-installer-android/blob/master/app/src/main/assets/keycard.cap?raw=true)
