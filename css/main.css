@@ -392,6 +392,10 @@ select[multiple] {
     background: rgba(67, 96, 223, 0.1);
     color: #4360DF; }
 
+.sidebar-link.current, .current.toc-link {
+  color: #4360DF;
+  font-weight: bold; }
+
 .footer {
   width: 100%;
   display: flex;

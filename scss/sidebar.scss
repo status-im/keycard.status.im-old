@@ -41,4 +41,11 @@ $sidebar-width:24%;
     background: rgba(67,96,223,0.1);
     color: #4360DF;
 	}
+
+
+}
+
+.sidebar-link.current {
+	color: #4360DF;
+	font-weight: bold;
 }
