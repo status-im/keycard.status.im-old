@@ -1,6 +1,6 @@
 ---
 id: apdu_getstatus
-title: GET STATUS
+title: Protocol
 ---
 
 # GET STATUS

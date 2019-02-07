@@ -1,6 +1,6 @@
 ---
 id: apdu_removekey
-title: REMOVE KEY
+title: Protocol
 ---
 
 # REMOVE KEY

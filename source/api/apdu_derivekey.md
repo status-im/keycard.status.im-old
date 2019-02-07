@@ -1,6 +1,6 @@
 ---
 id: apdu_derivekey
-title: DERIVE KEY
+title: Protocol
 ---
 
 # DERIVE KEY

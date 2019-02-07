@@ -1,6 +1,6 @@
 ---
 id: apdu_opensecurechannel
-title: OPEN SECURE CHANNEL
+title: Protocol
 ---
 
 # OPEN SECURE CHANNEL

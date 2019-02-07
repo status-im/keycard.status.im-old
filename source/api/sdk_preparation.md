@@ -1,6 +1,6 @@
 ---
 id: sdk_preparation
-title: Working with the applet
+title: Java SDK
 ---
 
 # Working with the applet

@@ -1,6 +1,6 @@
 ---
 id: apdu_sign
-title: SIGN
+title: Protocol
 ---
 
 # SIGN

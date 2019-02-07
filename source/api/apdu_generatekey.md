@@ -1,6 +1,6 @@
 ---
 id: apdu_generatekey
-title: GENERATE KEY
+title: Protocol
 ---
 
 # GENERATE KEY

@@ -1,6 +1,6 @@
 ---
 id: sdk_authentication
-title: User authentication
+title: Java SDK
 ---
 
 # User authentication

@@ -1,6 +1,6 @@
 ---
 id: index
-title: Overview
+title: Getting Started
 ---
 
 # Overview
@@ -15,7 +15,7 @@ To further simplify integration, we have developed a Java-based API which can be
 
 [Read the SDK documentation](sdk_installation.html)
 
-If you use a different language, please first refer to the [Java SDK](sdk_installation.html) documentation for a high level overview of how to perform different tasks with the Keycard. Then, please check the [APDU protocol documentation](apdu_overview.html) out for the low-level details.
+If you use a different language, please first refer to the [Java SDK](sdk_installation.html) documentation for a high level overview of how to perform different tasks with the Keycard. Then, please check the [protocol documentation](apdu_overview.html) out for the low-level details.
 
 ## Versioning
 

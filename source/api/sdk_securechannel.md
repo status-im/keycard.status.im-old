@@ -1,6 +1,6 @@
 ---
 id: sdk_securechannel
-title: Secure Channel
+title: Java SDK
 ---
 
 # Secure Channel

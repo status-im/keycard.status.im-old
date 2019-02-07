@@ -1,6 +1,6 @@
 ---
 id: sdk_duplication
-title: Card duplication
+title: Java SDK
 ---
 
 # Card duplication

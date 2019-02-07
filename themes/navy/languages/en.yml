@@ -30,7 +30,7 @@ sidebar:
     sdk_export: Exporting keys
     sdk_duplication: Card duplication
     java_sdk: Java SDK
-    apdu: APDU Protocol
+    apdu: Protocol
     apdu_overview: Overview
     apdu_select: SELECT
     apdu_init: INIT

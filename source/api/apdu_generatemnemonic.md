@@ -1,6 +1,6 @@
 ---
 id: apdu_generatemnemonic
-title: GENERATE MNEMONIC
+title: Protocol
 ---
 
 # GENERATE MNEMONIC

@@ -1,6 +1,6 @@
 ---
 id: resources
-title: Resources
+title: Getting Started
 ---
 
 # Resources

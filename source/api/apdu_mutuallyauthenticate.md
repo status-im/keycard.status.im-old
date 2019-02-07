@@ -1,6 +1,6 @@
 ---
 id: apdu_mutuallyauthenticate
-title: MUTUALLY AUTHENTICATE
+title: Protocol
 ---
 
 # MUTUALLY AUTHENTICATE

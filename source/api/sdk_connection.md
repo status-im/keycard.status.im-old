@@ -1,6 +1,6 @@
 ---
 id: sdk_connection
-title: Connecting to the card
+title: Java SDK
 ---
 
 # Connecting to the card

@@ -1,6 +1,6 @@
 ---
 id: apdu_pair
-title: PAIR
+title: Protocol
 ---
 
 # PAIR

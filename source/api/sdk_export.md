@@ -1,6 +1,6 @@
 ---
 id: sdk_export
-title: Exporting (public or EIP-1581 compliant) keys
+title: Java SDK
 
 ---
 

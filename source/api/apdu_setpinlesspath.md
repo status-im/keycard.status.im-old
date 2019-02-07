@@ -1,6 +1,6 @@
 ---
 id: apdu_setpinlesspath
-title: SET PINLESS PATH
+title: Protocol
 ---
 
 # SET PINLESS PATH

@@ -1,6 +1,6 @@
 ---
 id: sdk_derivation_signing
-title: Derivation & signing
+title: Java SDK
 ---
 
 # Derivation & signing

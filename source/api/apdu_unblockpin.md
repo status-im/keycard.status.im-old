@@ -1,6 +1,6 @@
 ---
 id: apdu_unblockpin
-title: UNBLOCK PIN
+title: Protocol
 ---
 
 # UNBLOCK PIN

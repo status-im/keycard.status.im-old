@@ -1,6 +1,6 @@
 ---
 id: apdu_select
-title: SELECT
+title: Protocol
 ---
 
 # SELECT

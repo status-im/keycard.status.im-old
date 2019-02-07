@@ -1,6 +1,6 @@
 ---
 id: sdk_create_wallet
-title: Wallet creation
+title: Java SDK
 ---
 
 # Wallet creation

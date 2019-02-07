@@ -1,6 +1,6 @@
 ---
 id: apdu_init
-title: INIT
+title: Protocol
 ---
 
 # INIT

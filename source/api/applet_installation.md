@@ -1,6 +1,6 @@
 ---
 id: applet_installation
-title: Preparing the card
+title: Getting Started
 ---
 
 # Preparing the card

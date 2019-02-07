@@ -1,6 +1,6 @@
 ---
 id: apdu_changepin
-title: CHANGE PIN
+title: Protocol
 ---
 
 # CHANGE PIN

@@ -1,6 +1,6 @@
 ---
 id: apdu_duplicatekey
-title: DUPLICATE KEY
+title: Protocol
 ---
 
 # DUPLICATE KEY

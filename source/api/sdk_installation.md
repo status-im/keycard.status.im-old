@@ -1,6 +1,6 @@
 ---
 id: sdk_installation
-title: Installation
+title: Java SDK
 ---
 
 # Installation

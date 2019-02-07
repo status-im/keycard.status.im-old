@@ -1,6 +1,6 @@
 ---
 id: apdu_unpair
-title: UNPAIR
+title: Protocol
 ---
 
 # UNPAIR

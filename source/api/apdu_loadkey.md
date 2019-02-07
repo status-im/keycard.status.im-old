@@ -1,6 +1,6 @@
 ---
 id: apdu_loadkey
-title: LOAD KEY
+title: Protocol
 ---
 
 # LOAD KEY

@@ -1,6 +1,6 @@
 ---
 id: apdu_verifypin
-title: VERIFY PIN
+title: Protocol
 ---
 
 # VERIFY PIN
