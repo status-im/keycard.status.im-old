@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://keycard.status.im/api/apdu_changelog.html</loc>
+    
+    <lastmod>2019-02-11T14:01:02.591Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://keycard.status.im/api/index.html</loc>
     
     <lastmod>2019-02-11T13:38:04.813Z</lastmod>
