@@ -2,6 +2,125 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://keycard.status.im/api/apdu_opensecurechannel.html</loc>
+    
+    <lastmod>2019-02-11T13:17:28.140Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://keycard.status.im/api/apdu_select.html</loc>
+    
+    <lastmod>2019-02-11T13:12:43.142Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://keycard.status.im/api/apdu_overview.html</loc>
+    
+    <lastmod>2019-02-11T08:48:09.469Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://keycard.status.im/api/apdu_removekey.html</loc>
+    
+    <lastmod>2019-02-08T13:15:07.566Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://keycard.status.im/api/apdu_pair.html</loc>
+    
+    <lastmod>2019-02-08T13:15:07.560Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://keycard.status.im/api/apdu_unpair.html</loc>
+    
+    <lastmod>2019-02-08T13:15:07.553Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://keycard.status.im/api/apdu_unblockpin.html</loc>
+    
+    <lastmod>2019-02-08T13:15:07.544Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://keycard.status.im/api/apdu_setndef.html</loc>
+    
+    <lastmod>2019-02-08T13:15:07.537Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://keycard.status.im/api/apdu_verifypin.html</loc>
+    
+    <lastmod>2019-02-08T13:15:07.528Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://keycard.status.im/api/apdu_mutuallyauthenticate.html</loc>
+    
+    <lastmod>2019-02-08T13:15:07.520Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://keycard.status.im/api/apdu_loadkey.html</loc>
+    
+    <lastmod>2019-02-08T13:12:48.014Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://keycard.status.im/api/apdu_init.html</loc>
+    
+    <lastmod>2019-02-08T12:51:13.298Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://keycard.status.im/api/apdu_getstatus.html</loc>
+    
+    <lastmod>2019-02-08T12:49:26.854Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://keycard.status.im/api/apdu_generatemnemonic.html</loc>
+    
+    <lastmod>2019-02-08T12:46:56.146Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://keycard.status.im/api/apdu_generatekey.html</loc>
+    
+    <lastmod>2019-02-08T12:46:56.133Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://keycard.status.im/api/apdu_changepin.html</loc>
+    
+    <lastmod>2019-02-08T12:45:28.352Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://keycard.status.im/api/apdu_duplicatekey.html</loc>
+    
+    <lastmod>2019-02-08T12:45:28.343Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://keycard.status.im/api/sdk_securechannel.html</loc>
     
     <lastmod>2019-02-07T11:31:56.520Z</lastmod>
@@ -65,27 +184,6 @@
   </url>
   
   <url>
-    <loc>https://keycard.status.im/api/apdu_verifypin.html</loc>
-    
-    <lastmod>2019-02-07T11:30:54.434Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://keycard.status.im/api/apdu_unpair.html</loc>
-    
-    <lastmod>2019-02-07T11:30:51.570Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://keycard.status.im/api/apdu_unblockpin.html</loc>
-    
-    <lastmod>2019-02-07T11:30:49.082Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://keycard.status.im/api/apdu_sign.html</loc>
     
     <lastmod>2019-02-07T11:30:46.232Z</lastmod>
@@ -100,90 +198,6 @@
   </url>
   
   <url>
-    <loc>https://keycard.status.im/api/apdu_setndef.html</loc>
-    
-    <lastmod>2019-02-07T11:30:40.108Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://keycard.status.im/api/apdu_select.html</loc>
-    
-    <lastmod>2019-02-07T11:30:36.147Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://keycard.status.im/api/apdu_removekey.html</loc>
-    
-    <lastmod>2019-02-07T11:30:33.351Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://keycard.status.im/api/apdu_pair.html</loc>
-    
-    <lastmod>2019-02-07T11:30:29.801Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://keycard.status.im/api/apdu_overview.html</loc>
-    
-    <lastmod>2019-02-07T11:30:27.286Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://keycard.status.im/api/apdu_opensecurechannel.html</loc>
-    
-    <lastmod>2019-02-07T11:30:24.441Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://keycard.status.im/api/apdu_mutuallyauthenticate.html</loc>
-    
-    <lastmod>2019-02-07T11:30:20.736Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://keycard.status.im/api/apdu_loadkey.html</loc>
-    
-    <lastmod>2019-02-07T11:30:16.850Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://keycard.status.im/api/apdu_init.html</loc>
-    
-    <lastmod>2019-02-07T11:30:13.662Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://keycard.status.im/api/apdu_getstatus.html</loc>
-    
-    <lastmod>2019-02-07T11:30:09.897Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://keycard.status.im/api/apdu_generatemnemonic.html</loc>
-    
-    <lastmod>2019-02-07T11:30:06.664Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://keycard.status.im/api/apdu_generatekey.html</loc>
-    
-    <lastmod>2019-02-07T11:30:03.559Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://keycard.status.im/api/apdu_exportkey.html</loc>
     
     <lastmod>2019-02-07T11:29:59.272Z</lastmod>
@@ -191,23 +205,9 @@
   </url>
   
   <url>
-    <loc>https://keycard.status.im/api/apdu_duplicatekey.html</loc>
-    
-    <lastmod>2019-02-07T11:29:55.113Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://keycard.status.im/api/apdu_derivekey.html</loc>
     
     <lastmod>2019-02-07T11:29:52.249Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://keycard.status.im/api/apdu_changepin.html</loc>
-    
-    <lastmod>2019-02-07T11:29:47.765Z</lastmod>
     
   </url>
   

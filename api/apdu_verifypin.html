@@ -66,13 +66,13 @@
                 <li><a href="https://incubate.status.im/" class="">Incubate</a></li>
                 <li><a href="https://nimbus.status.im/" class="">Nimbus</a></li>
                 <li><a href="https://embark.status.im/" class="">Embark</a></li>
-                <li><a href="https://hardwallet.status.im/" class="">Keycard</a></li>
+                <li><a href="https://keycard.status.im/" class="">Keycard</a></li>
               </ul>
             </li>
             <li><a href="https://status.im/contribute/" class="">Contribute</a></li>
         </ul>
         <div class="mobile-nav-footer">
-            <a href="http://get.status.im/chat/public/status-incubate" class="button button--secondary">Join Status Chat</a>
+            <a href="http://get.status.im/chat/public/status-keycard" class="button button--secondary">Join Status Chat</a>
         </div>
         <header class="dropdown">
             <nav>
@@ -218,16 +218,10 @@
 </div>
 
     
-    <div class="site-specific-menu">
-    <p>
-        <a class="site-name" href="/">Keycard</a>
-        <a class="specific-nav-link" href="/api"><span>API</span></a>
-    </p>
-</div>
-<div class="page-intro wrapper">
+    <div class="page-intro wrapper">
   <header class="article-header">
     <h1 class="article-title" itemprop="name">Protocol</h1>
-    <a href="https://github.com/status-im/incubate.status.im/edit/develop/source/api/apdu_verifypin.md" class="article-edit-link" title="Improve this doc">Edit on Github</a>
+    <a href="https://github.com/status-im/keycard.status.im/edit/develop/source/api/apdu_verifypin.md" class="article-edit-link" title="Improve this doc">Edit on Github</a>
   </header>
 </div>
 <div id="content-wrap">
@@ -251,12 +245,13 @@
 <li>Data = the PIN to be verified</li>
 <li>Response SW = 0x9000 on success, 0x63CX on failure, where X is the number of attempt remaining</li>
 <li>Preconditions: Secure Channel must be opened</li>
+<li>Capability: Credentials management</li>
 </ul>
 <p>Used to verify the user PIN. On correct PIN entry the card returns 0x9000, the retry counter is reset and the PIN is marked as authenticated for the entire session (until the application is deselected or the card reset/teared). On error, the number of remaining retries is decreased and the SW 0x63CX, where X is the number of available retries is returned. When the number of remaining retries reaches 0 the PIN is blocked. When the PIN is blocked this command always returns 0x63C0, even if the PIN is inserted correctly.</p>
 
               </div>
               <footer class="article-footer">
-                <time class="article-footer-updated" datetime="2019-02-07T11:30:54.434Z" itemprop="dateModified">Last updated: 2019-02-07</time>
+                <time class="article-footer-updated" datetime="2019-02-08T13:15:07.528Z" itemprop="dateModified">Last updated: 2019-02-08</time>
                 <a href="apdu_setndef.html" class="article-footer-prev" title="SET NDEF"><i class="fa fa-chevron-left"></i><span>Prev</span></a><a href="apdu_changepin.html" class="article-footer-next" title="CHANGE PIN"><span>Next</span><i class="fa fa-chevron-right"></i></a>
               </footer>
             </div>
@@ -297,7 +292,7 @@
                 <p class="footer-header">Projects</p>
                 <ul class="footer-list">
                     <li class="footer-link"><a href="https://embark.status.im" target="_blank">Embark</a></li>
-                    <li class="footer-link"><a href="https://hardwallet.status.im/" target="_blank">Keycard</a></li>
+                    <li class="footer-link"><a href="https://keycard.status.im/" target="_blank">Keycard</a></li>
                     <li class="footer-link"><a href="https://incubate.status.im/" target="_blank">Incubate</a></li>
                     <li class="footer-link"><a href="https://nimbus.status.im/" target="_blank">Nimbus</a></li>
                 </ul>

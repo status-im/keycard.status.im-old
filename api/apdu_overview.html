@@ -66,13 +66,13 @@
                 <li><a href="https://incubate.status.im/" class="">Incubate</a></li>
                 <li><a href="https://nimbus.status.im/" class="">Nimbus</a></li>
                 <li><a href="https://embark.status.im/" class="">Embark</a></li>
-                <li><a href="https://hardwallet.status.im/" class="">Keycard</a></li>
+                <li><a href="https://keycard.status.im/" class="">Keycard</a></li>
               </ul>
             </li>
             <li><a href="https://status.im/contribute/" class="">Contribute</a></li>
         </ul>
         <div class="mobile-nav-footer">
-            <a href="http://get.status.im/chat/public/status-incubate" class="button button--secondary">Join Status Chat</a>
+            <a href="http://get.status.im/chat/public/status-keycard" class="button button--secondary">Join Status Chat</a>
         </div>
         <header class="dropdown">
             <nav>
@@ -218,16 +218,10 @@
 </div>
 
     
-    <div class="site-specific-menu">
-    <p>
-        <a class="site-name" href="/">Keycard</a>
-        <a class="specific-nav-link" href="/api"><span>API</span></a>
-    </p>
-</div>
-<div class="page-intro wrapper">
+    <div class="page-intro wrapper">
   <header class="article-header">
     <h1 class="article-title" itemprop="name">Protocol</h1>
-    <a href="https://github.com/status-im/incubate.status.im/edit/develop/source/api/apdu_overview.md" class="article-edit-link" title="Improve this doc">Edit on Github</a>
+    <a href="https://github.com/status-im/keycard.status.im/edit/develop/source/api/apdu_overview.md" class="article-edit-link" title="Improve this doc">Edit on Github</a>
   </header>
 </div>
 <div id="content-wrap">
@@ -244,15 +238,26 @@
             <div class="inner">
               <div class="article-content" itemprop="articleBody">
                 <h1 id="Overview" class="article-heading"><a href="#Overview" class="headerlink" title="Overview"></a>Overview<a class="article-anchor" href="#Overview" aria-hidden="true"></a></h1><p>This document describes all APDUs part of the Keycard APDU protocol. Any implementation must fully implement this specification except for items explicitly marked as optional or conditional. The Keycard applet is a full implementation of this specification. The Java SDK provides both low-level methods to send each of the APDUs described here as well as convenience methods and classes to simplify integration.</p>
-<h2 id="Version" class="article-heading"><a href="#Version" class="headerlink" title="Version"></a>Version<a class="article-anchor" href="#Version" aria-hidden="true"></a></h2><p>This documentation is at version 2.0. In this version of the protocol there are no optional or conditional items</p>
+<h2 id="Version" class="article-heading"><a href="#Version" class="headerlink" title="Version"></a>Version<a class="article-anchor" href="#Version" aria-hidden="true"></a></h2><p>This documentation is at version 2.1.</p>
 <h2 id="Conventions" class="article-heading"><a href="#Conventions" class="headerlink" title="Conventions"></a>Conventions<a class="article-anchor" href="#Conventions" aria-hidden="true"></a></h2><ul>
 <li>When a command has a precondition clause and these are not met the Status Word 0x6985 is returned. </li>
+<li>When a command is unsupported the Status Word 0x6A81 is returned.</li>
 <li>All tagged data structures are encoded in the <a href="http://www.cardwerk.com/smartcards/smartcard_standard_ISO7816-4_annex-d.aspx" target="_blank" rel="noopener">BER-TLV format</a>.</li>
+<li>When parsing the card’s response, the client should ignore unrecognized fields at the end of the response. This allows extending responses in future minor revisions without breaking compatibility with older clients.</li>
 </ul>
+<h2 id="Capabilities" class="article-heading"><a href="#Capabilities" class="headerlink" title="Capabilities"></a>Capabilities<a class="article-anchor" href="#Capabilities" aria-hidden="true"></a></h2><p>The Keycard protocol can be implemented by different devices which might have very different capabilities, different user interaction and connection types. For this reason some features not strictly related to signing transactions are optional. Each device reports its capabilities as response to the SELECT command. The optional capabilities are described below</p>
+<h3 id="Secure-Channel" class="article-heading"><a href="#Secure-Channel" class="headerlink" title="Secure Channel"></a>Secure Channel<a class="article-anchor" href="#Secure-Channel" aria-hidden="true"></a></h3><p>The Secure Channel protocol defined in this document provides both passive and active MITM protection and PFS. Some devices however might have inherently secure connections to the client (for example Bluetooth based devices can use pairing and encrypted communication). To avoid overhead, devices using inherently secure connections can avoid implementing the secure channel defined here.</p>
+<p>Devices not implementing the Secure Channel capability do not implement the <strong>PAIR</strong>, <strong>UNPAIR</strong>, <strong>OPEN SECURE CHANNEL</strong> and <strong>MUTUALLY AUTHENTICATE</strong> commands. The <strong>CHANGE PIN</strong> and <strong>INIT</strong> commands do not allow setting the pairing password.</p>
+<h3 id="Key-management" class="article-heading"><a href="#Key-management" class="headerlink" title="Key management"></a>Key management<a class="article-anchor" href="#Key-management" aria-hidden="true"></a></h3><p>Key management is the ability to generate, remove, backup and restore keys. Some devices might have internal key management and not allow the client to take part in this process.</p>
+<p>Devices not implementing the Key management capability do not implement the <strong>LOAD KEY</strong>, <strong>GENERATE KEY</strong>, <strong>GENERATE MNEMONIC</strong>, <strong>REMOVE KEY</strong> and <strong>DUPLICATE KEY</strong> commands.</p>
+<h3 id="Credentials-management" class="article-heading"><a href="#Credentials-management" class="headerlink" title="Credentials management"></a>Credentials management<a class="article-anchor" href="#Credentials-management" aria-hidden="true"></a></h3><p>Credentials management is the ability to authenticate the user and manipulate PIN, PUK and pairing password. Some devices, especially those with screen and buttons, might want to handle this completely internally without client intervention.</p>
+<p>Devices not implementing the Credentials management capability do not implement the <strong>INIT</strong>, <strong>VERIFY PIN</strong>, <strong>UNBLOCK PIN</strong> and <strong>CHANGE PIN</strong> commands.</p>
+<h3 id="NDEF" class="article-heading"><a href="#NDEF" class="headerlink" title="NDEF"></a>NDEF<a class="article-anchor" href="#NDEF" aria-hidden="true"></a></h3><p>The NDEF capability is the ability to set a custom NDEF record on the NFC interface. The NDEF record is used, for example, by mobile phones to decide the action to perform when a card is tapped to the device and no application using NFC is open. Customizing the NDEF record allow setting a default client or link to launch. Obviously, not all devices have a NFC interface and even those who do might not provide a way to customize the NDEF response.</p>
+<p>Devices not implementing the NDEF capability do not implement the <strong>SET NDEF</strong> command.</p>
 
               </div>
               <footer class="article-footer">
-                <time class="article-footer-updated" datetime="2019-02-07T11:30:27.286Z" itemprop="dateModified">Last updated: 2019-02-07</time>
+                <time class="article-footer-updated" datetime="2019-02-11T08:48:09.469Z" itemprop="dateModified">Last updated: 2019-02-11</time>
                 <a href="sdk_duplication.html" class="article-footer-prev" title="Card duplication"><i class="fa fa-chevron-left"></i><span>Prev</span></a><a href="apdu_select.html" class="article-footer-next" title="SELECT"><span>Next</span><i class="fa fa-chevron-right"></i></a>
               </footer>
             </div>
@@ -293,7 +298,7 @@
                 <p class="footer-header">Projects</p>
                 <ul class="footer-list">
                     <li class="footer-link"><a href="https://embark.status.im" target="_blank">Embark</a></li>
-                    <li class="footer-link"><a href="https://hardwallet.status.im/" target="_blank">Keycard</a></li>
+                    <li class="footer-link"><a href="https://keycard.status.im/" target="_blank">Keycard</a></li>
                     <li class="footer-link"><a href="https://incubate.status.im/" target="_blank">Incubate</a></li>
                     <li class="footer-link"><a href="https://nimbus.status.im/" target="_blank">Nimbus</a></li>
                 </ul>

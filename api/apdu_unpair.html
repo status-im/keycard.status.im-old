@@ -66,13 +66,13 @@
                 <li><a href="https://incubate.status.im/" class="">Incubate</a></li>
                 <li><a href="https://nimbus.status.im/" class="">Nimbus</a></li>
                 <li><a href="https://embark.status.im/" class="">Embark</a></li>
-                <li><a href="https://hardwallet.status.im/" class="">Keycard</a></li>
+                <li><a href="https://keycard.status.im/" class="">Keycard</a></li>
               </ul>
             </li>
             <li><a href="https://status.im/contribute/" class="">Contribute</a></li>
         </ul>
         <div class="mobile-nav-footer">
-            <a href="http://get.status.im/chat/public/status-incubate" class="button button--secondary">Join Status Chat</a>
+            <a href="http://get.status.im/chat/public/status-keycard" class="button button--secondary">Join Status Chat</a>
         </div>
         <header class="dropdown">
             <nav>
@@ -218,16 +218,10 @@
 </div>
 
     
-    <div class="site-specific-menu">
-    <p>
-        <a class="site-name" href="/">Keycard</a>
-        <a class="specific-nav-link" href="/api"><span>API</span></a>
-    </p>
-</div>
-<div class="page-intro wrapper">
+    <div class="page-intro wrapper">
   <header class="article-header">
     <h1 class="article-title" itemprop="name">Protocol</h1>
-    <a href="https://github.com/status-im/incubate.status.im/edit/develop/source/api/apdu_unpair.md" class="article-edit-link" title="Improve this doc">Edit on Github</a>
+    <a href="https://github.com/status-im/keycard.status.im/edit/develop/source/api/apdu_unpair.md" class="article-edit-link" title="Improve this doc">Edit on Github</a>
   </header>
 </div>
 <div id="content-wrap">
@@ -250,12 +244,13 @@
 <li>P2 = 0x00</li>
 <li>Response SW = 0x9000 on success, 0x6985 if security conditions are not met, 0x6A86 if the index is higher than the<br>highest possible pairing index.</li>
 <li>Preconditions: Secure Channel must be opened, user PIN must be verified</li>
+<li>Capability: Secure Channel</li>
 </ul>
 <p>This APDU is sent to unpair a client. An existing secure channel session must be open. The application implementing this protocol may apply additional restrictions, such as the verification of a user PIN. On success the pairing slot at the  given index will be freed and will be made available to pair other clients. If the index is already free nothing will happen.</p>
 
               </div>
               <footer class="article-footer">
-                <time class="article-footer-updated" datetime="2019-02-07T11:30:51.570Z" itemprop="dateModified">Last updated: 2019-02-07</time>
+                <time class="article-footer-updated" datetime="2019-02-08T13:15:07.553Z" itemprop="dateModified">Last updated: 2019-02-08</time>
                 <a href="apdu_pair.html" class="article-footer-prev" title="PAIR"><i class="fa fa-chevron-left"></i><span>Prev</span></a><a href="apdu_getstatus.html" class="article-footer-next" title="GET STATUS"><span>Next</span><i class="fa fa-chevron-right"></i></a>
               </footer>
             </div>
@@ -296,7 +291,7 @@
                 <p class="footer-header">Projects</p>
                 <ul class="footer-list">
                     <li class="footer-link"><a href="https://embark.status.im" target="_blank">Embark</a></li>
-                    <li class="footer-link"><a href="https://hardwallet.status.im/" target="_blank">Keycard</a></li>
+                    <li class="footer-link"><a href="https://keycard.status.im/" target="_blank">Keycard</a></li>
                     <li class="footer-link"><a href="https://incubate.status.im/" target="_blank">Incubate</a></li>
                     <li class="footer-link"><a href="https://nimbus.status.im/" target="_blank">Nimbus</a></li>
                 </ul>
