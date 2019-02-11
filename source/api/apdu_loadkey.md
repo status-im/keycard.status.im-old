@@ -13,6 +13,7 @@ title: Protocol
 * Response SW = 0x9000 on success, 0x6A80 if the format is invalid, 0x6A86 if P1 is invalid
 * Response Data = the key UID, defined as the SHA-256 of the public key
 * Preconditions: Secure Channel must be opened, user PIN must be verified
+* Capability: Key management
 
 P1:
 * 0x01 = ECC SECP256k1 keypair

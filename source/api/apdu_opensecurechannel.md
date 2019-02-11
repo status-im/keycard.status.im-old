@@ -12,6 +12,7 @@ title: Protocol
 * Data = An EC-256 public key on the SECP256k1 curve encoded as an uncompressed point.
 * Response Data = A 256-bit salt and a 128-bit seed IV
 * Response SW = 0x9000 on success, 0x6A86 if P1 is invalid, 0x6A80 if the data is not a public key
+* Capability: Secure Channel
 
 This APDU is the first step to establish a Secure Channel session. A session is aborted when the application is deselected, either directly or because of a card reset/tear.
 

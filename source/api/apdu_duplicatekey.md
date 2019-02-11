@@ -13,6 +13,7 @@ title: Protocol
 * Response SW = 0x9000 on success.
 * Response Data = depends on subcommand
 * Preconditions: depends on subcommand
+* Capability: Key management
 
 P1:
 * 0x00: START DUPLICATE

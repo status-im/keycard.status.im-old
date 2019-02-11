@@ -12,5 +12,6 @@ title: Protocol
 * Response SW = 0x9000 on success.
 * Response Data = the key UID, defined as the SHA-256 of the public key
 * Preconditions: Secure Channel must be opened, user PIN must be verified
+* Capability: Key management
 
 Generates and stores keys completely on card. The state of the card after execution is the same as if a LOAD KEY command had been performed.

@@ -12,6 +12,7 @@ title: Protocol
 * Data = see below
 * Response Data = see below
 * Response SW = 0x9000 on success, 0x6A80 if the data is in the wrong format, 0x6982 if client cryptogram verification fails, 0x6A84 if all available pairing slot are taken, 0x6A86 if P1 is invalid or is 0x01 but the first phase was not completed, 0x6985 if a secure channel is open
+* Capability: Secure Channel
 
 P1:
 * 0x00: First step
