@@ -20,8 +20,7 @@ if P1 = 0x00:
   - Tag 0x02 = PUK retry count (1 byte)
   - Tag 0x01 = 0xff if key is initialized, 0 otherwise
   
-This must be implemented even if Credential and/or Key management is not implemented. If the PIN/PUK retry count is not
-available or is not applicable, its value should be set to 0xff.
+This must be implemented even if Credential and/or Key management is not implemented. If the PIN/PUK retry count is not available or is not applicable, its value should be set to 0xff.
 
 if P1 = 0x01:
 - a sequence of 32-bit numbers indicating the current key path. Empty if master key is selected.
