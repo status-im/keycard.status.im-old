@@ -19,7 +19,7 @@ Response Data format:
  - Tag 0x02 = Application Version (2 bytes)
  - Tag 0x02 = Number of remaining pairing slots (1 byte)
  - Tag 0x8E = Key UID (0 or 32 bytes)
- - Tag 0x8F = Capabilities (1 byte)
+ - Tag 0x8D = Capabilities (1 byte)
 
 The SELECT command is documented in the ISO 7816-4 specifications and is used to select the application on the card, making it the active one. The data field is the AID of the application. 
 
