@@ -1,9 +1,3 @@
-<div class="site-specific-menu">
-    <p>
-        <a class="site-name" href="{{ url_for('/') }}">Keycard</a>
-        <a class="specific-nav-link" href="{{ url_for('/api') }}"><span>API</span></a>
-    </p>
-</div>
 <div class="page-intro wrapper">
   <header class="article-header">
     <h1 class="article-title" itemprop="name">{{ page.title }}</h1>

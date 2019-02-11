@@ -28,7 +28,7 @@
                 <p class="footer-header">Projects</p>
                 <ul class="footer-list">
                     <li class="footer-link"><a href="https://embark.status.im" target="_blank">Embark</a></li>
-                    <li class="footer-link"><a href="https://hardwallet.status.im/" target="_blank">Keycard</a></li>
+                    <li class="footer-link"><a href="https://keycard.status.im/" target="_blank">Keycard</a></li>
                     <li class="footer-link"><a href="https://incubate.status.im/" target="_blank">Incubate</a></li>
                     <li class="footer-link"><a href="https://nimbus.status.im/" target="_blank">Nimbus</a></li>
                 </ul>
