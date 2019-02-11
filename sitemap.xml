@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://keycard.status.im/api/apdu_getstatus.html</loc>
+    
+    <lastmod>2019-02-11T13:36:16.508Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://keycard.status.im/api/apdu_opensecurechannel.html</loc>
     
     <lastmod>2019-02-11T13:17:28.140Z</lastmod>
@@ -82,13 +89,6 @@
     <loc>https://keycard.status.im/api/apdu_init.html</loc>
     
     <lastmod>2019-02-08T12:51:13.298Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://keycard.status.im/api/apdu_getstatus.html</loc>
-    
-    <lastmod>2019-02-08T12:49:26.854Z</lastmod>
     
   </url>
   
