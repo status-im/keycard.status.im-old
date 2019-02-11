@@ -32,6 +32,7 @@ sidebar:
     java_sdk: Java SDK
     apdu: Protocol
     apdu_overview: Overview
+    apdu_changelog: Changelog
     apdu_select: SELECT
     apdu_init: INIT
     apdu_opensecurechannel: OPEN SECURE CHANNEL

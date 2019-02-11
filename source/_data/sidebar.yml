@@ -15,6 +15,7 @@ api:
     sdk_duplication: sdk_duplication.html
   apdu:
     apdu_overview: apdu_overview.html
+    apdu_changelog: apdu_changelog.html
     apdu_select: apdu_select.html
     apdu_init: apdu_init.html
     apdu_opensecurechannel: apdu_opensecurechannel.html
